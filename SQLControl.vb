@@ -1,5 +1,6 @@
 ﻿Imports System.Data.Common
 Imports System.Data.SqlClient
+Imports System.Web.WebSockets
 Public Class SQLControl
     Private SQLCon As New SqlConnection With {.ConnectionString = "Server=MANDEEP\SQLEXPRESS;Database=Melodifydb;User=sa;Password=manjirosano12"}
     Public SQLDA As DataAdapter
@@ -42,5 +43,3 @@ Public Class SQLControl
         Return False
     End Function
 End Class
-
-

@@ -86,6 +86,18 @@
       <DependentUpon>Form1.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Home.Designer.vb">
+      <DependentUpon>Home.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Home.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Login.Designer.vb">
+      <DependentUpon>Login.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Login.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -101,17 +113,32 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="SignIn.Designer.vb">
+      <DependentUpon>SignIn.vb</DependentUpon>
+    </Compile>
+    <Compile Include="SignIn.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="SQLControl.vb" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Home.resx">
+      <DependentUpon>Home.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Login.resx">
+      <DependentUpon>Login.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SignIn.resx">
+      <DependentUpon>SignIn.vb</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
@@ -126,6 +153,237 @@
     </None>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\CloseButtonB.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\CloseButtonW.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\MinimiseButton.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\viber_image_2024-06-05_22-42-20-804-removebg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Account.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PassWordIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\UserIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\LoginIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\LoginIcon1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\EmailIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\FemaleIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MaleIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PhotoUpoloadIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\LogoName.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\LogoName1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Account1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cd-svgrepo-com %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cd-svgrepo-com.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CloseButtonB.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CloseButtonW.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\download-square-svgrepo-com %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\download-square-svgrepo-com.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\EmailIcon1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\FemaleIcon1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\history-svgrepo-com %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\history-svgrepo-com.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\LoginIcon2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\LogoName2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\love-svgrepo-com %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\love-svgrepo-com.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MaleIcon1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MinimizeButton.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\music-notes-svgrepo-com %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\music-notes-svgrepo-com.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\next-svgrepo-com %282%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\next-svgrepo-com %283%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PassWordIcon1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PhotoUpoloadIcon1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\playlist-minimalistic-2-svgrepo-com %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\playlist-minimalistic-2-svgrepo-com.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\repeat-svgrepo-com %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\repeat-svgrepo-com.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\search-svgrepo-com.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sound-loud-filled-svgrepo-com.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sound-off-filled-svgrepo-com.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\UserIcon1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\user-search-alt-1-svgrepo-com %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\user-search-alt-1-svgrepo-com.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\UserGreen.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\album-svgrepo-com.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\album-svgrepo-com %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\albums-sharp-svgrepo-com.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\albums-sharp-svgrepo-com %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Weekend.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sajna.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Kendrik.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Kendrik2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\LikeThat.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Likethat2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PostMalone.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Espresso_-_Sabrina_Carpenter.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Farkanna Hola.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Never Let go.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Sunflowefr.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\play-svgrepo-com %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\play-svgrepo-com.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pause-circle-svgrepo-com %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\suffle-play-music-svgrepo-com.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\suffle-play-music-svgrepo-com %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\next-svgrepo-com %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\next-svgrepo-com.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Back.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Back1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\play-back-svgrepo-com %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\play-back-svgrepo-com.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\forward-step-svgrepo-com.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\backward-step-svgrepo-com.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>
