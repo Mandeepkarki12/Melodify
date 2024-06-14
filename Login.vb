@@ -12,8 +12,10 @@ Public Class Login
         End If
         sql.AddParam("@User", TxtUsername.Text)
         sql.AddParam("@Password", TxtPassword.Text)
-        sql.ExecQuery("SELECT UserName " & "FROM USERS WHERE UserName = @User AND Password = @Password COLLATE SQL_LATIN1_GENERAL_CP1_CS_AS")
+        sql.ExecQuery("SELECT UserId " & "FROM USERS WHERE UserName = @User AND Password = @Password COLLATE SQL_LATIN1_GENERAL_CP1_CS_AS")
         If sql.RecordCount = 1 Then
+            userId = Convert.ToInt32(sql.SQLDS.Tables(0).Rows(0)("UserId"))
+            MsgBox(userId)
             Return True
         Else
             Return False
@@ -36,5 +38,8 @@ Public Class Login
         Else
             TxtPassword.PasswordChar = "*"
         End If
+    End Sub
+    Private Sub Login_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
     End Sub
 End Class

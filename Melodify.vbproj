@@ -51,6 +51,9 @@
     <Reference Include="Guna.UI2, Version=2.0.4.6, Culture=neutral, PublicKeyToken=8b9d14aa5142e261, processorArchitecture=MSIL">
       <HintPath>packages\Guna.UI2.WinForms.2.0.4.6\lib\net472\Guna.UI2.dll</HintPath>
     </Reference>
+    <Reference Include="NAudio">
+      <HintPath>..\..\NAudio.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Deployment" />
@@ -79,6 +82,24 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Albums.Designer.vb">
+      <DependentUpon>Albums.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Albums.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Artist.Designer.vb">
+      <DependentUpon>Artist.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Artist.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ArtistSignup.Designer.vb">
+      <DependentUpon>ArtistSignup.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ArtistSignup.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Form1.vb">
       <SubType>Form</SubType>
     </Compile>
@@ -86,6 +107,7 @@
       <DependentUpon>Form1.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="GlobalVars.vb" />
     <Compile Include="Home.Designer.vb">
       <DependentUpon>Home.vb</DependentUpon>
     </Compile>
@@ -102,6 +124,7 @@
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
       <DependentUpon>Application.myapp</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <Compile Include="My Project\Resources.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -113,15 +136,36 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="Setting.Designer.vb">
+      <DependentUpon>Setting.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Setting.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="SignIn.Designer.vb">
       <DependentUpon>SignIn.vb</DependentUpon>
     </Compile>
     <Compile Include="SignIn.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Song.Designer.vb">
+      <DependentUpon>Song.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Song.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="SQLControl.vb" />
+    <Compile Include="test.Designer.vb">
+      <DependentUpon>test.vb</DependentUpon>
+    </Compile>
+    <Compile Include="test.vb">
+      <SubType>Form</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="ArtistSignup.resx">
+      <DependentUpon>ArtistSignup.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.vb</DependentUpon>
     </EmbeddedResource>
@@ -137,8 +181,14 @@
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="Setting.resx">
+      <DependentUpon>Setting.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="SignIn.resx">
       <DependentUpon>SignIn.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="test.resx">
+      <DependentUpon>test.vb</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
@@ -384,6 +434,21 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\backward-step-svgrepo-com.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\vanana.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Dynamite.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SuperShy.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Chitthi bitra.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PickItUpDexter.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

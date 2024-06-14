@@ -24,8 +24,6 @@ Partial Class Home
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Me.Guna2Elipse1 = New Guna.UI2.WinForms.Guna2Elipse(Me.components)
-        Me.Guna2Panel2 = New Guna.UI2.WinForms.Guna2Panel()
-        Me.Guna2ControlBox1 = New Guna.UI2.WinForms.Guna2ControlBox()
         Me.Guna2Panel1 = New Guna.UI2.WinForms.Guna2Panel()
         Me.Guna2Button7 = New Guna.UI2.WinForms.Guna2Button()
         Me.Guna2Button6 = New Guna.UI2.WinForms.Guna2Button()
@@ -106,13 +104,18 @@ Partial Class Home
         Me.Label31 = New System.Windows.Forms.Label()
         Me.Label32 = New System.Windows.Forms.Label()
         Me.Guna2PictureBox13 = New Guna.UI2.WinForms.Guna2PictureBox()
+        Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.Guna2PictureBox7 = New Guna.UI2.WinForms.Guna2PictureBox()
         Me.Guna2PictureBox6 = New Guna.UI2.WinForms.Guna2PictureBox()
         Me.Guna2PictureBox5 = New Guna.UI2.WinForms.Guna2PictureBox()
         Me.Guna2PictureBox4 = New Guna.UI2.WinForms.Guna2PictureBox()
         Me.Guna2PictureBox3 = New Guna.UI2.WinForms.Guna2PictureBox()
         Me.Guna2PictureBox2 = New Guna.UI2.WinForms.Guna2PictureBox()
-        Me.Guna2Panel2.SuspendLayout()
+        Me.Guna2Panel11 = New Guna.UI2.WinForms.Guna2Panel()
+        Me.FileSystemWatcher1 = New System.IO.FileSystemWatcher()
+        Me.Guna2ControlBox1 = New Guna.UI2.WinForms.Guna2ControlBox()
+        Me.Guna2Panel2 = New Guna.UI2.WinForms.Guna2Panel()
+        Me.Guna2CirclePictureBox2 = New Guna.UI2.WinForms.Guna2CirclePictureBox()
         Me.Guna2Panel1.SuspendLayout()
         CType(Me.Guna2CirclePictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Guna2Panel3.SuspendLayout()
@@ -137,6 +140,9 @@ Partial Class Home
         CType(Me.Guna2PictureBox4, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Guna2PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Guna2PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.FileSystemWatcher1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.Guna2Panel2.SuspendLayout()
+        CType(Me.Guna2CirclePictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Guna2Elipse1
@@ -144,27 +150,9 @@ Partial Class Home
         Me.Guna2Elipse1.BorderRadius = 0
         Me.Guna2Elipse1.TargetControl = Me
         '
-        'Guna2Panel2
-        '
-        Me.Guna2Panel2.Controls.Add(Me.Guna2ControlBox1)
-        Me.Guna2Panel2.Dock = System.Windows.Forms.DockStyle.Top
-        Me.Guna2Panel2.Location = New System.Drawing.Point(0, 0)
-        Me.Guna2Panel2.Name = "Guna2Panel2"
-        Me.Guna2Panel2.Size = New System.Drawing.Size(1221, 37)
-        Me.Guna2Panel2.TabIndex = 1
-        '
-        'Guna2ControlBox1
-        '
-        Me.Guna2ControlBox1.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Guna2ControlBox1.FillColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(151, Byte), Integer))
-        Me.Guna2ControlBox1.IconColor = System.Drawing.Color.White
-        Me.Guna2ControlBox1.Location = New System.Drawing.Point(1172, 0)
-        Me.Guna2ControlBox1.Name = "Guna2ControlBox1"
-        Me.Guna2ControlBox1.Size = New System.Drawing.Size(49, 37)
-        Me.Guna2ControlBox1.TabIndex = 21
-        '
         'Guna2Panel1
         '
+        Me.Guna2Panel1.Controls.Add(Me.Guna2CirclePictureBox2)
         Me.Guna2Panel1.Controls.Add(Me.Guna2Button7)
         Me.Guna2Panel1.Controls.Add(Me.Guna2Button6)
         Me.Guna2Panel1.Controls.Add(Me.Guna2Button5)
@@ -198,7 +186,7 @@ Partial Class Home
         Me.Guna2Button7.Image = Global.Melodify.My.Resources.Resources.download_square_svgrepo_com
         Me.Guna2Button7.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left
         Me.Guna2Button7.ImageSize = New System.Drawing.Size(25, 25)
-        Me.Guna2Button7.Location = New System.Drawing.Point(29, 619)
+        Me.Guna2Button7.Location = New System.Drawing.Point(29, 633)
         Me.Guna2Button7.Name = "Guna2Button7"
         Me.Guna2Button7.Size = New System.Drawing.Size(180, 45)
         Me.Guna2Button7.TabIndex = 9
@@ -221,7 +209,7 @@ Partial Class Home
         Me.Guna2Button6.Image = Global.Melodify.My.Resources.Resources.history_svgrepo_com
         Me.Guna2Button6.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left
         Me.Guna2Button6.ImageSize = New System.Drawing.Size(25, 25)
-        Me.Guna2Button6.Location = New System.Drawing.Point(29, 560)
+        Me.Guna2Button6.Location = New System.Drawing.Point(29, 574)
         Me.Guna2Button6.Name = "Guna2Button6"
         Me.Guna2Button6.Size = New System.Drawing.Size(180, 45)
         Me.Guna2Button6.TabIndex = 8
@@ -244,7 +232,7 @@ Partial Class Home
         Me.Guna2Button5.Image = Global.Melodify.My.Resources.Resources.love_svgrepo_com
         Me.Guna2Button5.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left
         Me.Guna2Button5.ImageSize = New System.Drawing.Size(25, 25)
-        Me.Guna2Button5.Location = New System.Drawing.Point(29, 499)
+        Me.Guna2Button5.Location = New System.Drawing.Point(29, 513)
         Me.Guna2Button5.Name = "Guna2Button5"
         Me.Guna2Button5.Size = New System.Drawing.Size(180, 45)
         Me.Guna2Button5.TabIndex = 7
@@ -253,7 +241,7 @@ Partial Class Home
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(25, 386)
+        Me.Label2.Location = New System.Drawing.Point(25, 400)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(51, 19)
         Me.Label2.TabIndex = 6
@@ -262,7 +250,7 @@ Partial Class Home
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(25, 157)
+        Me.Label1.Location = New System.Drawing.Point(25, 171)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(45, 19)
         Me.Label1.TabIndex = 5
@@ -285,7 +273,7 @@ Partial Class Home
         Me.Guna2Button4.Image = Global.Melodify.My.Resources.Resources.playlist_minimalistic_2_svgrepo_com
         Me.Guna2Button4.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left
         Me.Guna2Button4.ImageSize = New System.Drawing.Size(25, 25)
-        Me.Guna2Button4.Location = New System.Drawing.Point(29, 437)
+        Me.Guna2Button4.Location = New System.Drawing.Point(29, 451)
         Me.Guna2Button4.Name = "Guna2Button4"
         Me.Guna2Button4.Size = New System.Drawing.Size(180, 45)
         Me.Guna2Button4.TabIndex = 4
@@ -308,7 +296,7 @@ Partial Class Home
         Me.Guna2Button3.Image = Global.Melodify.My.Resources.Resources.albums_sharp_svgrepo_com
         Me.Guna2Button3.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left
         Me.Guna2Button3.ImageSize = New System.Drawing.Size(25, 25)
-        Me.Guna2Button3.Location = New System.Drawing.Point(29, 310)
+        Me.Guna2Button3.Location = New System.Drawing.Point(29, 324)
         Me.Guna2Button3.Name = "Guna2Button3"
         Me.Guna2Button3.Size = New System.Drawing.Size(180, 45)
         Me.Guna2Button3.TabIndex = 3
@@ -331,7 +319,7 @@ Partial Class Home
         Me.Guna2Button2.Image = Global.Melodify.My.Resources.Resources.music_notes_svgrepo_com
         Me.Guna2Button2.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left
         Me.Guna2Button2.ImageSize = New System.Drawing.Size(25, 25)
-        Me.Guna2Button2.Location = New System.Drawing.Point(29, 254)
+        Me.Guna2Button2.Location = New System.Drawing.Point(29, 268)
         Me.Guna2Button2.Name = "Guna2Button2"
         Me.Guna2Button2.Size = New System.Drawing.Size(180, 45)
         Me.Guna2Button2.TabIndex = 2
@@ -354,7 +342,7 @@ Partial Class Home
         Me.Guna2Button1.Image = Global.Melodify.My.Resources.Resources.UserIcon1
         Me.Guna2Button1.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left
         Me.Guna2Button1.ImageSize = New System.Drawing.Size(25, 25)
-        Me.Guna2Button1.Location = New System.Drawing.Point(29, 200)
+        Me.Guna2Button1.Location = New System.Drawing.Point(29, 214)
         Me.Guna2Button1.Name = "Guna2Button1"
         Me.Guna2Button1.Size = New System.Drawing.Size(180, 45)
         Me.Guna2Button1.TabIndex = 1
@@ -365,7 +353,7 @@ Partial Class Home
         Me.Guna2CirclePictureBox1.BackColor = System.Drawing.Color.Transparent
         Me.Guna2CirclePictureBox1.Image = Global.Melodify.My.Resources.Resources.LogoName1
         Me.Guna2CirclePictureBox1.ImageRotate = 0!
-        Me.Guna2CirclePictureBox1.Location = New System.Drawing.Point(3, 0)
+        Me.Guna2CirclePictureBox1.Location = New System.Drawing.Point(4, 22)
         Me.Guna2CirclePictureBox1.Name = "Guna2CirclePictureBox1"
         Me.Guna2CirclePictureBox1.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle
         Me.Guna2CirclePictureBox1.Size = New System.Drawing.Size(209, 154)
@@ -383,7 +371,7 @@ Partial Class Home
         Me.Guna2Panel3.Controls.Add(Me.Guna2PictureBox1)
         Me.Guna2Panel3.Location = New System.Drawing.Point(215, 37)
         Me.Guna2Panel3.Name = "Guna2Panel3"
-        Me.Guna2Panel3.Size = New System.Drawing.Size(1006, 285)
+        Me.Guna2Panel3.Size = New System.Drawing.Size(1006, 299)
         Me.Guna2Panel3.TabIndex = 3
         '
         'Label6
@@ -537,12 +525,13 @@ Partial Class Home
         '
         'Guna2ImageButton15
         '
-        Me.Guna2ImageButton15.CheckedState.ImageSize = New System.Drawing.Size(64, 64)
+        Me.Guna2ImageButton15.CheckedState.Image = Global.Melodify.My.Resources.Resources.pause_circle_svgrepo_com__1_1
+        Me.Guna2ImageButton15.CheckedState.ImageSize = New System.Drawing.Size(30, 30)
         Me.Guna2ImageButton15.HoverState.ImageSize = New System.Drawing.Size(30, 30)
-        Me.Guna2ImageButton15.Image = Global.Melodify.My.Resources.Resources.pause_circle_svgrepo_com__1_1
+        Me.Guna2ImageButton15.Image = Global.Melodify.My.Resources.Resources.play_svgrepo_com__1_
         Me.Guna2ImageButton15.ImageOffset = New System.Drawing.Point(0, 0)
         Me.Guna2ImageButton15.ImageRotate = 0!
-        Me.Guna2ImageButton15.ImageSize = New System.Drawing.Size(40, 40)
+        Me.Guna2ImageButton15.ImageSize = New System.Drawing.Size(30, 30)
         Me.Guna2ImageButton15.Location = New System.Drawing.Point(306, 20)
         Me.Guna2ImageButton15.Name = "Guna2ImageButton15"
         Me.Guna2ImageButton15.PressedState.ImageSize = New System.Drawing.Size(30, 30)
@@ -882,9 +871,9 @@ Partial Class Home
         Me.Label23.ForeColor = System.Drawing.Color.FromArgb(CType(CType(125, Byte), Integer), CType(CType(125, Byte), Integer), CType(CType(125, Byte), Integer))
         Me.Label23.Location = New System.Drawing.Point(61, 25)
         Me.Label23.Name = "Label23"
-        Me.Label23.Size = New System.Drawing.Size(97, 19)
+        Me.Label23.Size = New System.Drawing.Size(122, 19)
         Me.Label23.TabIndex = 28
-        Me.Label23.Text = "Kendrik Lamar"
+        Me.Label23.Text = "John Chamling Rai"
         '
         'Label24
         '
@@ -893,18 +882,18 @@ Partial Class Home
         Me.Label24.Font = New System.Drawing.Font("Microsoft YaHei UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label24.Location = New System.Drawing.Point(61, 5)
         Me.Label24.Name = "Label24"
-        Me.Label24.Size = New System.Drawing.Size(77, 19)
+        Me.Label24.Size = New System.Drawing.Size(116, 19)
         Me.Label24.TabIndex = 27
-        Me.Label24.Text = "Like That"
+        Me.Label24.Text = "Vanana Matra"
         '
         'Guna2PictureBox9
         '
         Me.Guna2PictureBox9.BorderRadius = 5
-        Me.Guna2PictureBox9.Image = Global.Melodify.My.Resources.Resources.LikeThat
+        Me.Guna2PictureBox9.Image = Global.Melodify.My.Resources.Resources.vanana
         Me.Guna2PictureBox9.ImageRotate = 0!
-        Me.Guna2PictureBox9.Location = New System.Drawing.Point(1, 0)
+        Me.Guna2PictureBox9.Location = New System.Drawing.Point(-4, 0)
         Me.Guna2PictureBox9.Name = "Guna2PictureBox9"
-        Me.Guna2PictureBox9.Size = New System.Drawing.Size(46, 50)
+        Me.Guna2PictureBox9.Size = New System.Drawing.Size(53, 50)
         Me.Guna2PictureBox9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
         Me.Guna2PictureBox9.TabIndex = 27
         Me.Guna2PictureBox9.TabStop = False
@@ -956,9 +945,9 @@ Partial Class Home
         Me.Label25.ForeColor = System.Drawing.Color.FromArgb(CType(CType(125, Byte), Integer), CType(CType(125, Byte), Integer), CType(CType(125, Byte), Integer))
         Me.Label25.Location = New System.Drawing.Point(61, 25)
         Me.Label25.Name = "Label25"
-        Me.Label25.Size = New System.Drawing.Size(97, 19)
+        Me.Label25.Size = New System.Drawing.Size(32, 19)
         Me.Label25.TabIndex = 28
-        Me.Label25.Text = "Kendrik Lamar"
+        Me.Label25.Text = "BTS"
         '
         'Label26
         '
@@ -967,14 +956,14 @@ Partial Class Home
         Me.Label26.Font = New System.Drawing.Font("Microsoft YaHei UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label26.Location = New System.Drawing.Point(61, 5)
         Me.Label26.Name = "Label26"
-        Me.Label26.Size = New System.Drawing.Size(77, 19)
+        Me.Label26.Size = New System.Drawing.Size(83, 19)
         Me.Label26.TabIndex = 27
-        Me.Label26.Text = "Like That"
+        Me.Label26.Text = "Dynamite"
         '
         'Guna2PictureBox10
         '
         Me.Guna2PictureBox10.BorderRadius = 5
-        Me.Guna2PictureBox10.Image = Global.Melodify.My.Resources.Resources.LikeThat
+        Me.Guna2PictureBox10.Image = Global.Melodify.My.Resources.Resources.Dynamite
         Me.Guna2PictureBox10.ImageRotate = 0!
         Me.Guna2PictureBox10.Location = New System.Drawing.Point(1, 0)
         Me.Guna2PictureBox10.Name = "Guna2PictureBox10"
@@ -1030,9 +1019,9 @@ Partial Class Home
         Me.Label27.ForeColor = System.Drawing.Color.FromArgb(CType(CType(125, Byte), Integer), CType(CType(125, Byte), Integer), CType(CType(125, Byte), Integer))
         Me.Label27.Location = New System.Drawing.Point(61, 25)
         Me.Label27.Name = "Label27"
-        Me.Label27.Size = New System.Drawing.Size(97, 19)
+        Me.Label27.Size = New System.Drawing.Size(74, 19)
         Me.Label27.TabIndex = 28
-        Me.Label27.Text = "Kendrik Lamar"
+        Me.Label27.Text = "New Jeans"
         '
         'Label28
         '
@@ -1041,14 +1030,14 @@ Partial Class Home
         Me.Label28.Font = New System.Drawing.Font("Microsoft YaHei UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label28.Location = New System.Drawing.Point(61, 5)
         Me.Label28.Name = "Label28"
-        Me.Label28.Size = New System.Drawing.Size(77, 19)
+        Me.Label28.Size = New System.Drawing.Size(85, 19)
         Me.Label28.TabIndex = 27
-        Me.Label28.Text = "Like That"
+        Me.Label28.Text = "Super Shy"
         '
         'Guna2PictureBox11
         '
         Me.Guna2PictureBox11.BorderRadius = 5
-        Me.Guna2PictureBox11.Image = Global.Melodify.My.Resources.Resources.LikeThat
+        Me.Guna2PictureBox11.Image = Global.Melodify.My.Resources.Resources.SuperShy
         Me.Guna2PictureBox11.ImageRotate = 0!
         Me.Guna2PictureBox11.Location = New System.Drawing.Point(1, 0)
         Me.Guna2PictureBox11.Name = "Guna2PictureBox11"
@@ -1104,9 +1093,9 @@ Partial Class Home
         Me.Label29.ForeColor = System.Drawing.Color.FromArgb(CType(CType(125, Byte), Integer), CType(CType(125, Byte), Integer), CType(CType(125, Byte), Integer))
         Me.Label29.Location = New System.Drawing.Point(61, 25)
         Me.Label29.Name = "Label29"
-        Me.Label29.Size = New System.Drawing.Size(97, 19)
+        Me.Label29.Size = New System.Drawing.Size(112, 19)
         Me.Label29.TabIndex = 28
-        Me.Label29.Text = "Kendrik Lamar"
+        Me.Label29.Text = "Sajjan Raj Vaidya"
         '
         'Label30
         '
@@ -1115,14 +1104,14 @@ Partial Class Home
         Me.Label30.Font = New System.Drawing.Font("Microsoft YaHei UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label30.Location = New System.Drawing.Point(61, 5)
         Me.Label30.Name = "Label30"
-        Me.Label30.Size = New System.Drawing.Size(77, 19)
+        Me.Label30.Size = New System.Drawing.Size(98, 19)
         Me.Label30.TabIndex = 27
-        Me.Label30.Text = "Like That"
+        Me.Label30.Text = "Chitthi Bitra"
         '
         'Guna2PictureBox12
         '
         Me.Guna2PictureBox12.BorderRadius = 5
-        Me.Guna2PictureBox12.Image = Global.Melodify.My.Resources.Resources.LikeThat
+        Me.Guna2PictureBox12.Image = Global.Melodify.My.Resources.Resources.Chitthi_bitra
         Me.Guna2PictureBox12.ImageRotate = 0!
         Me.Guna2PictureBox12.Location = New System.Drawing.Point(1, 0)
         Me.Guna2PictureBox12.Name = "Guna2PictureBox12"
@@ -1178,9 +1167,9 @@ Partial Class Home
         Me.Label31.ForeColor = System.Drawing.Color.FromArgb(CType(CType(125, Byte), Integer), CType(CType(125, Byte), Integer), CType(CType(125, Byte), Integer))
         Me.Label31.Location = New System.Drawing.Point(61, 25)
         Me.Label31.Name = "Label31"
-        Me.Label31.Size = New System.Drawing.Size(97, 19)
+        Me.Label31.Size = New System.Drawing.Size(85, 19)
         Me.Label31.TabIndex = 28
-        Me.Label31.Text = "Kendrik Lamar"
+        Me.Label31.Text = "Famous Dex"
         '
         'Label32
         '
@@ -1189,14 +1178,14 @@ Partial Class Home
         Me.Label32.Font = New System.Drawing.Font("Microsoft YaHei UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label32.Location = New System.Drawing.Point(61, 5)
         Me.Label32.Name = "Label32"
-        Me.Label32.Size = New System.Drawing.Size(77, 19)
+        Me.Label32.Size = New System.Drawing.Size(81, 19)
         Me.Label32.TabIndex = 27
-        Me.Label32.Text = "Like That"
+        Me.Label32.Text = "Pick It Up"
         '
         'Guna2PictureBox13
         '
         Me.Guna2PictureBox13.BorderRadius = 5
-        Me.Guna2PictureBox13.Image = Global.Melodify.My.Resources.Resources.LikeThat
+        Me.Guna2PictureBox13.Image = Global.Melodify.My.Resources.Resources.PickItUpDexter
         Me.Guna2PictureBox13.ImageRotate = 0!
         Me.Guna2PictureBox13.Location = New System.Drawing.Point(1, 0)
         Me.Guna2PictureBox13.Name = "Guna2PictureBox13"
@@ -1204,6 +1193,9 @@ Partial Class Home
         Me.Guna2PictureBox13.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
         Me.Guna2PictureBox13.TabIndex = 27
         Me.Guna2PictureBox13.TabStop = False
+        '
+        'Timer1
+        '
         '
         'Guna2PictureBox7
         '
@@ -1277,11 +1269,56 @@ Partial Class Home
         Me.Guna2PictureBox2.TabIndex = 5
         Me.Guna2PictureBox2.TabStop = False
         '
+        'Guna2Panel11
+        '
+        Me.Guna2Panel11.Location = New System.Drawing.Point(215, 37)
+        Me.Guna2Panel11.Name = "Guna2Panel11"
+        Me.Guna2Panel11.Size = New System.Drawing.Size(1005, 612)
+        Me.Guna2Panel11.TabIndex = 12
+        '
+        'FileSystemWatcher1
+        '
+        Me.FileSystemWatcher1.EnableRaisingEvents = True
+        Me.FileSystemWatcher1.SynchronizingObject = Me
+        '
+        'Guna2ControlBox1
+        '
+        Me.Guna2ControlBox1.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Guna2ControlBox1.FillColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(151, Byte), Integer))
+        Me.Guna2ControlBox1.IconColor = System.Drawing.Color.White
+        Me.Guna2ControlBox1.Location = New System.Drawing.Point(1172, 0)
+        Me.Guna2ControlBox1.Name = "Guna2ControlBox1"
+        Me.Guna2ControlBox1.Size = New System.Drawing.Size(49, 37)
+        Me.Guna2ControlBox1.TabIndex = 21
+        '
+        'Guna2Panel2
+        '
+        Me.Guna2Panel2.Controls.Add(Me.Guna2ControlBox1)
+        Me.Guna2Panel2.Dock = System.Windows.Forms.DockStyle.Top
+        Me.Guna2Panel2.Location = New System.Drawing.Point(0, 0)
+        Me.Guna2Panel2.Name = "Guna2Panel2"
+        Me.Guna2Panel2.Size = New System.Drawing.Size(1221, 37)
+        Me.Guna2Panel2.TabIndex = 1
+        '
+        'Guna2CirclePictureBox2
+        '
+        Me.Guna2CirclePictureBox2.FillColor = System.Drawing.Color.Transparent
+        Me.Guna2CirclePictureBox2.Image = Global.Melodify.My.Resources.Resources.Account1
+        Me.Guna2CirclePictureBox2.ImageRotate = 0!
+        Me.Guna2CirclePictureBox2.Location = New System.Drawing.Point(5, 0)
+        Me.Guna2CirclePictureBox2.Name = "Guna2CirclePictureBox2"
+        Me.Guna2CirclePictureBox2.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle
+        Me.Guna2CirclePictureBox2.Size = New System.Drawing.Size(42, 42)
+        Me.Guna2CirclePictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.Guna2CirclePictureBox2.TabIndex = 10
+        Me.Guna2CirclePictureBox2.TabStop = False
+        '
         'Home
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 19.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1221, 735)
+        Me.Controls.Add(Me.Guna2Panel11)
         Me.Controls.Add(Me.Guna2Panel10)
         Me.Controls.Add(Me.Guna2Panel9)
         Me.Controls.Add(Me.Guna2Panel8)
@@ -1318,7 +1355,6 @@ Partial Class Home
         Me.Name = "Home"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Home"
-        Me.Guna2Panel2.ResumeLayout(False)
         Me.Guna2Panel1.ResumeLayout(False)
         Me.Guna2Panel1.PerformLayout()
         CType(Me.Guna2CirclePictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
@@ -1352,6 +1388,9 @@ Partial Class Home
         CType(Me.Guna2PictureBox4, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.Guna2PictureBox3, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.Guna2PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.FileSystemWatcher1, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.Guna2Panel2.ResumeLayout(False)
+        CType(Me.Guna2CirclePictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -1359,7 +1398,6 @@ Partial Class Home
 
     Friend WithEvents Guna2Elipse1 As Guna.UI2.WinForms.Guna2Elipse
     Friend WithEvents Guna2Panel1 As Guna.UI2.WinForms.Guna2Panel
-    Friend WithEvents Guna2Panel2 As Guna.UI2.WinForms.Guna2Panel
     Friend WithEvents Guna2Panel4 As Guna.UI2.WinForms.Guna2Panel
     Friend WithEvents Guna2Panel3 As Guna.UI2.WinForms.Guna2Panel
     Friend WithEvents Guna2CirclePictureBox1 As Guna.UI2.WinForms.Guna2CirclePictureBox
@@ -1373,7 +1411,6 @@ Partial Class Home
     Friend WithEvents Label2 As Label
     Friend WithEvents Guna2Button4 As Guna.UI2.WinForms.Guna2Button
     Friend WithEvents Guna2PictureBox1 As Guna.UI2.WinForms.Guna2PictureBox
-    Friend WithEvents Guna2ControlBox1 As Guna.UI2.WinForms.Guna2ControlBox
     Friend WithEvents Label3 As Label
     Friend WithEvents Label4 As Label
     Friend WithEvents Guna2PictureBox2 As Guna.UI2.WinForms.Guna2PictureBox
@@ -1446,4 +1483,10 @@ Partial Class Home
     Friend WithEvents Guna2TrackBar1 As Guna.UI2.WinForms.Guna2TrackBar
     Friend WithEvents Guna2ImageButton18 As Guna.UI2.WinForms.Guna2ImageButton
     Friend WithEvents Guna2ImageButton19 As Guna.UI2.WinForms.Guna2ImageButton
+    Friend WithEvents Timer1 As Timer
+    Friend WithEvents Guna2Panel11 As Guna.UI2.WinForms.Guna2Panel
+    Friend WithEvents FileSystemWatcher1 As IO.FileSystemWatcher
+    Friend WithEvents Guna2Panel2 As Guna.UI2.WinForms.Guna2Panel
+    Friend WithEvents Guna2ControlBox1 As Guna.UI2.WinForms.Guna2ControlBox
+    Friend WithEvents Guna2CirclePictureBox2 As Guna.UI2.WinForms.Guna2CirclePictureBox
 End Class
