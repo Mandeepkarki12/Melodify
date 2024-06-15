@@ -1,5 +1,4 @@
 ﻿
-
 Public Class ArtistSignup
     Private sql As New SQLControl
     Private Function SignUp() As Boolean
@@ -20,8 +19,11 @@ Public Class ArtistSignup
     End Function
     Private Sub SignUpButton_Click(sender As Object, e As EventArgs) Handles SignUpButton.Click
         If SignUp() Then
+            Dim settings As New Setting
             sql.AddParam("@user", userId)
             sql.ExecQuery("UPDATE Users SET ArtistCheck = 1 WHERE UserId = @user")
+            settings.Guna2Button1.Hide()
+            settings.Guna2Button2.Show()
             MsgBox("You signed up as an artist.")
         Else
             MsgBox("Failed to sign up.")
@@ -30,6 +32,5 @@ Public Class ArtistSignup
 
     Private Sub ArtistSignup_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         MsgBox(userId)
-
     End Sub
 End Class

@@ -100,6 +100,12 @@
     <Compile Include="ArtistSignup.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="CreateAlbum.Designer.vb">
+      <DependentUpon>CreateAlbum.vb</DependentUpon>
+    </Compile>
+    <Compile Include="CreateAlbum.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Form1.vb">
       <SubType>Form</SubType>
     </Compile>
@@ -114,6 +120,7 @@
     <Compile Include="Home.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="ImageFunc.vb" />
     <Compile Include="Login.Designer.vb">
       <DependentUpon>Login.vb</DependentUpon>
     </Compile>
@@ -165,6 +172,9 @@
   <ItemGroup>
     <EmbeddedResource Include="ArtistSignup.resx">
       <DependentUpon>ArtistSignup.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CreateAlbum.resx">
+      <DependentUpon>CreateAlbum.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.vb</DependentUpon>

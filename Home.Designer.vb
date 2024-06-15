@@ -25,6 +25,7 @@ Partial Class Home
         Me.components = New System.ComponentModel.Container()
         Me.Guna2Elipse1 = New Guna.UI2.WinForms.Guna2Elipse(Me.components)
         Me.Guna2Panel1 = New Guna.UI2.WinForms.Guna2Panel()
+        Me.Guna2CirclePictureBox2 = New Guna.UI2.WinForms.Guna2CirclePictureBox()
         Me.Guna2Button7 = New Guna.UI2.WinForms.Guna2Button()
         Me.Guna2Button6 = New Guna.UI2.WinForms.Guna2Button()
         Me.Guna2Button5 = New Guna.UI2.WinForms.Guna2Button()
@@ -115,8 +116,8 @@ Partial Class Home
         Me.FileSystemWatcher1 = New System.IO.FileSystemWatcher()
         Me.Guna2ControlBox1 = New Guna.UI2.WinForms.Guna2ControlBox()
         Me.Guna2Panel2 = New Guna.UI2.WinForms.Guna2Panel()
-        Me.Guna2CirclePictureBox2 = New Guna.UI2.WinForms.Guna2CirclePictureBox()
         Me.Guna2Panel1.SuspendLayout()
+        CType(Me.Guna2CirclePictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Guna2CirclePictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Guna2Panel3.SuspendLayout()
         CType(Me.Guna2PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -142,7 +143,6 @@ Partial Class Home
         CType(Me.Guna2PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.FileSystemWatcher1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Guna2Panel2.SuspendLayout()
-        CType(Me.Guna2CirclePictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Guna2Elipse1
@@ -168,6 +168,19 @@ Partial Class Home
         Me.Guna2Panel1.Name = "Guna2Panel1"
         Me.Guna2Panel1.Size = New System.Drawing.Size(215, 698)
         Me.Guna2Panel1.TabIndex = 2
+        '
+        'Guna2CirclePictureBox2
+        '
+        Me.Guna2CirclePictureBox2.FillColor = System.Drawing.Color.Transparent
+        Me.Guna2CirclePictureBox2.Image = Global.Melodify.My.Resources.Resources.Account1
+        Me.Guna2CirclePictureBox2.ImageRotate = 0!
+        Me.Guna2CirclePictureBox2.Location = New System.Drawing.Point(5, 0)
+        Me.Guna2CirclePictureBox2.Name = "Guna2CirclePictureBox2"
+        Me.Guna2CirclePictureBox2.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle
+        Me.Guna2CirclePictureBox2.Size = New System.Drawing.Size(42, 42)
+        Me.Guna2CirclePictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.Guna2CirclePictureBox2.TabIndex = 10
+        Me.Guna2CirclePictureBox2.TabStop = False
         '
         'Guna2Button7
         '
@@ -1300,19 +1313,6 @@ Partial Class Home
         Me.Guna2Panel2.Size = New System.Drawing.Size(1221, 37)
         Me.Guna2Panel2.TabIndex = 1
         '
-        'Guna2CirclePictureBox2
-        '
-        Me.Guna2CirclePictureBox2.FillColor = System.Drawing.Color.Transparent
-        Me.Guna2CirclePictureBox2.Image = Global.Melodify.My.Resources.Resources.Account1
-        Me.Guna2CirclePictureBox2.ImageRotate = 0!
-        Me.Guna2CirclePictureBox2.Location = New System.Drawing.Point(5, 0)
-        Me.Guna2CirclePictureBox2.Name = "Guna2CirclePictureBox2"
-        Me.Guna2CirclePictureBox2.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle
-        Me.Guna2CirclePictureBox2.Size = New System.Drawing.Size(42, 42)
-        Me.Guna2CirclePictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.Guna2CirclePictureBox2.TabIndex = 10
-        Me.Guna2CirclePictureBox2.TabStop = False
-        '
         'Home
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 19.0!)
@@ -1357,6 +1357,7 @@ Partial Class Home
         Me.Text = "Home"
         Me.Guna2Panel1.ResumeLayout(False)
         Me.Guna2Panel1.PerformLayout()
+        CType(Me.Guna2CirclePictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.Guna2CirclePictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Guna2Panel3.ResumeLayout(False)
         Me.Guna2Panel3.PerformLayout()
@@ -1390,7 +1391,6 @@ Partial Class Home
         CType(Me.Guna2PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.FileSystemWatcher1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Guna2Panel2.ResumeLayout(False)
-        CType(Me.Guna2CirclePictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 

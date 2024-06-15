@@ -25,6 +25,18 @@ Public Class Login
         If authentication() = True Then
             Dim home As New Home
             MsgBox("login Sucessfull")
+            sql.AddParam("@userId", userId)
+            sql.ExecQuery("SELECT ArtistId FROM ARTISTS WHERE UserId = @userId")
+            If sql.RecordCount = 1 Then
+                artistId = Convert.ToInt32(sql.SQLDS.Tables(0).Rows(0)("ArtistId"))
+            End If
+            MsgBox(artistId)
+            sql.AddParam("@artistId", artistId)
+            sql.ExecQuery("SELECT AlbumID FROM ALBUMS WHERE ArtistID = @artistId")
+            If sql.RecordCount = 1 Then
+                albumId = Convert.ToInt32(sql.SQLDS.Tables(0).Rows(0)("AlbumID"))
+            End If
+            MsgBox(albumId)
             Me.Hide()
             home.Show()
         Else
@@ -38,8 +50,5 @@ Public Class Login
         Else
             TxtPassword.PasswordChar = "*"
         End If
-    End Sub
-    Private Sub Login_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
     End Sub
 End Class

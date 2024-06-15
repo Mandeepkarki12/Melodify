@@ -4,7 +4,7 @@ Imports System.Windows.Forms.VisualStyles.VisualStyleElement
 Imports NAudio
 Imports NAudio.Wave
 Public Class Home
-
+    Public imageHandler As New ImageFunc
     Private Sub Guna2ControlBox1_Click(sender As Object, e As EventArgs) Handles Guna2ControlBox1.Click
         Application.Exit()
     End Sub
@@ -34,6 +34,7 @@ Public Class Home
     End Sub
     Private Sub Home_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Guna2Panel11.Hide()
+        imageHandler.LoadImage(Guna2CirclePictureBox2, userId)
         ' track
         Guna2TrackBar1.Minimum = 0
         Guna2TrackBar1.Maximum = 100
@@ -42,7 +43,6 @@ Public Class Home
         Guna2TrackBar2.Minimum = 0
         Guna2TrackBar2.Maximum = 100
         Guna2TrackBar2.Value = 50
-
     End Sub
     Private Sub Guna2ImageButton15_Click(sender As Object, e As EventArgs) Handles Guna2ImageButton15.Click
         If Guna2ImageButton15.Checked = True Then
@@ -251,4 +251,6 @@ Public Class Home
     Private Sub Guna2CirclePictureBox2_Click(sender As Object, e As EventArgs) Handles Guna2CirclePictureBox2.Click
         childForm(Setting)
     End Sub
+
+
 End Class
