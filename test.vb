@@ -17,12 +17,10 @@ Public Class test
             End If
             ' Read file data
             Dim fileData As Byte() = File.ReadAllBytes(filePath)
-
             ' Insert file data into database
             Dim query As String = "INSERT INTO PreSongs (Title, SongData) VALUES ('Farkanna Hola', @SongData)"
             sql.AddParam("@SongData", fileData)
             sql.ExecQuery(query)
-
             ' Check for exceptions
             If Not String.IsNullOrEmpty(sql.Exception) Then
                 MessageBox.Show("An error occurred during SQL query execution: " & sql.Exception)
@@ -34,7 +32,6 @@ Public Class test
             MessageBox.Show("An error occurred: " & ex.Message)
         End Try
     End Sub
-
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         ' Call musicSave method with the file path
         musicSave("C:\Users\karki\Downloads\Farkanna Hola ( Official Lyrical Video ) #shotoniphone.mp3")

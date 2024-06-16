@@ -81,7 +81,7 @@ Partial Class Setting
         '
         Me.Guna2CirclePictureBox1.BackColor = System.Drawing.Color.Transparent
         Me.Guna2CirclePictureBox1.ImageRotate = 0!
-        Me.Guna2CirclePictureBox1.Location = New System.Drawing.Point(41, 44)
+        Me.Guna2CirclePictureBox1.Location = New System.Drawing.Point(41, 46)
         Me.Guna2CirclePictureBox1.Name = "Guna2CirclePictureBox1"
         Me.Guna2CirclePictureBox1.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle
         Me.Guna2CirclePictureBox1.Size = New System.Drawing.Size(149, 112)
@@ -230,7 +230,7 @@ Partial Class Setting
         Me.Guna2Button4.ImageAlign = System.Windows.Forms.HorizontalAlignment.Right
         Me.Guna2Button4.Location = New System.Drawing.Point(490, 16)
         Me.Guna2Button4.Name = "Guna2Button4"
-        Me.Guna2Button4.Size = New System.Drawing.Size(155, 40)
+        Me.Guna2Button4.Size = New System.Drawing.Size(223, 40)
         Me.Guna2Button4.TabIndex = 10
         Me.Guna2Button4.Text = "Create Album"
         '
@@ -276,7 +276,7 @@ Partial Class Setting
         Me.Guna2CircleButton1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
         Me.Guna2CircleButton1.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.Guna2CircleButton1.ForeColor = System.Drawing.Color.White
-        Me.Guna2CircleButton1.Location = New System.Drawing.Point(322, 29)
+        Me.Guna2CircleButton1.Location = New System.Drawing.Point(392, 29)
         Me.Guna2CircleButton1.Name = "Guna2CircleButton1"
         Me.Guna2CircleButton1.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle
         Me.Guna2CircleButton1.Size = New System.Drawing.Size(73, 56)

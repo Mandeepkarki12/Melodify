@@ -1,6 +1,5 @@
 ﻿Imports System.IO
 Imports Guna.UI2.WinForms
-
 Public Class ImageFunc
     Public sql As New SQLControl
     Public Function FetchImage(user As Integer) As Byte()

@@ -1,8 +1,11 @@
-﻿
-Public Class ArtistSignup
+﻿Public Class ArtistSignup
     Private sql As New SQLControl
+    Private settingsForm As Setting ' Reference to Setting form
+    Public Sub New(ByRef settings As Setting)
+        InitializeComponent()
+        settingsForm = settings
+    End Sub
     Private Function SignUp() As Boolean
-
         If String.IsNullOrEmpty(BioTxt.Text) Or String.IsNullOrEmpty(GenreTxt.Text) Then
             MsgBox("Please fill up all your information.")
             Return False
@@ -19,17 +22,17 @@ Public Class ArtistSignup
     End Function
     Private Sub SignUpButton_Click(sender As Object, e As EventArgs) Handles SignUpButton.Click
         If SignUp() Then
-            Dim settings As New Setting
             sql.AddParam("@user", userId)
             sql.ExecQuery("UPDATE Users SET ArtistCheck = 1 WHERE UserId = @user")
-            settings.Guna2Button1.Hide()
-            settings.Guna2Button2.Show()
             MsgBox("You signed up as an artist.")
+            ' Update visibility in the existing instance of Setting form
+            settingsForm.buttonVisible()
+            settingsForm.Refresh() ' Optional: Refresh the form if needed
+            Me.Close()
         Else
             MsgBox("Failed to sign up.")
         End If
     End Sub
-
     Private Sub ArtistSignup_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         MsgBox(userId)
     End Sub
