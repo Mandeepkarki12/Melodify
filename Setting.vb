@@ -7,11 +7,9 @@
     Public Sub buttonVisible()
         sql.AddParam("@user", userId)
         sql.ExecQuery("SELECT UserName, ArtistCheck FROM USERS WHERE UserId = @user")
-
         If sql.RecordCount = 1 Then
             userName = Convert.ToString(sql.SQLDS.Tables(0).Rows(0)("UserName"))
             ArtistCheck = Convert.ToBoolean(sql.SQLDS.Tables(0).Rows(0)("ArtistCheck"))
-
             If ArtistCheck Then
                 Guna2Button1.Visible = False
                 Guna2Button2.Visible = True
@@ -60,7 +58,6 @@
     End Sub
     Private Sub Guna2Button5_Click(sender As Object, e As EventArgs) Handles Guna2Button5.Click
         Dim openFileDialog As New OpenFileDialog()
-
         ' Set the file dialog properties
         openFileDialog.Title = "Select a Music File"
         openFileDialog.Filter = "Music Files|*.mp3;*.wav;*.aac|All Files|*.*"

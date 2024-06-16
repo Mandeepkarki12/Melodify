@@ -15,6 +15,11 @@
             MsgBox(Sql.Exception)
         Else
             MsgBox("Album created successfully")
+            sql.AddParam("@artistId", artistId)
+            sql.ExecQuery("SELECT AlbumID FROM ALBUMS WHERE ArtistID = @artistId")
+            If sql.RecordCount = 1 Then
+                albumId = Convert.ToInt32(sql.SQLDS.Tables(0).Rows(0)("AlbumID"))
+            End If
             settingsForm.Refresh()
             Me.Close()
             settingsForm.clearAlbum()
