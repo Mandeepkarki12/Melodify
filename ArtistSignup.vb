@@ -57,8 +57,6 @@
             MsgBox("Failed to sign up.")
         End If
     End Sub
-
-
     Private Sub ArtistSignup_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         MsgBox(userId)
     End Sub

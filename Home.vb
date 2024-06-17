@@ -4,7 +4,7 @@ Imports System.Windows.Forms.VisualStyles.VisualStyleElement
 Imports NAudio
 Imports NAudio.Wave
 Public Class Home
-    Public imageHandler As New ImageFunc
+    Public Imagemusic As New Func
     Private Sub Guna2ControlBox1_Click(sender As Object, e As EventArgs) Handles Guna2ControlBox1.Click
         Application.Exit()
     End Sub
@@ -20,13 +20,11 @@ Public Class Home
             If myPlayer.PlaybackState = PlaybackState.Playing Then
                 myPlayer.Stop()
             End If
-
             If FileReader IsNot Nothing Then
                 FileReader.Dispose()
                 FileReader = Nothing
             End If
             Files = String.Empty
-
             Guna2TrackBar1.Value = 0 ' Reset the trackbar position
         Catch ex As Exception
             ' Handle exceptions if needed
@@ -34,7 +32,7 @@ Public Class Home
     End Sub
     Private Sub Home_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Guna2Panel11.Hide()
-        imageHandler.LoadImage(Guna2CirclePictureBox2, userId)
+        Imagemusic.LoadImage(Guna2CirclePictureBox2, userId)
         ' track
         Guna2TrackBar1.Minimum = 0
         Guna2TrackBar1.Maximum = 100
@@ -69,7 +67,6 @@ Public Class Home
         Catch ex As Exception
 
         End Try
-
     End Sub
     Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
         If FileReader IsNot Nothing Then
@@ -83,7 +80,6 @@ Public Class Home
             myPlayer.Volume = volumes
         End If
     End Sub
-
     ' Popular songs Section :
     Private Sub Guna2PictureBox3_Click(sender As Object, e As EventArgs) Handles Guna2PictureBox3.Click
         'farkanna hola 
@@ -247,10 +243,7 @@ Public Class Home
     Private Sub Guna2Button3_Click(sender As Object, e As EventArgs) Handles Guna2Button3.Click
         childForm(Albums)
     End Sub
-
     Private Sub Guna2CirclePictureBox2_Click(sender As Object, e As EventArgs) Handles Guna2CirclePictureBox2.Click
         childForm(Setting)
     End Sub
-
-
 End Class

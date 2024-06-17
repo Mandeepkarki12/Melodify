@@ -2,7 +2,7 @@
     Dim sql As New SQLControl
     Public userName As String
     Private ArtistCheck As Boolean
-    Public imageHandler As New ImageFunc
+    Public ImageMusic As New Func
     Dim selectedFilePath As String
     Public Sub buttonVisible()
         sql.AddParam("@user", userId)
@@ -23,7 +23,7 @@
         buttonVisible()
         getAlbums()
         Guna2Panel1.Hide()
-        imageHandler.LoadImage(Guna2CirclePictureBox1, userId)
+        ImageMusic.LoadImage(Guna2CirclePictureBox1, userId)
         Label1.Text = userName
     End Sub
     Private Sub Guna2Button1_Click(sender As Object, e As EventArgs) Handles Guna2Button1.Click
@@ -72,6 +72,6 @@
         End If
     End Sub
     Private Sub Guna2Button7_Click(sender As Object, e As EventArgs) Handles Guna2Button7.Click
-        imageHandler.musicSave(selectedFilePath, Guna2ComboBox1, Guna2TextBox2)
+        ImageMusic.musicSave(selectedFilePath, Guna2ComboBox1, Guna2TextBox2)
     End Sub
 End Class
