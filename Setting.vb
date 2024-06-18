@@ -1,4 +1,6 @@
-﻿Public Class Setting
+﻿Imports Guna.UI2.WinForms
+
+Public Class Setting
     Dim sql As New SQLControl
     Public userName As String
     Private ArtistCheck As Boolean
@@ -38,7 +40,6 @@
     Public Sub getAlbums()
         sql.AddParam("@artist", artistId)
         sql.ExecQuery("SELECT Title FROM ALBUMS WHERE ArtistID = @artist")
-
         If sql.RecordCount > 0 Then
             For Each r As DataRow In sql.SQLDS.Tables(0).Rows
                 Guna2ComboBox1.Items.Add(r("Title"))
@@ -48,6 +49,19 @@
             MsgBox(sql.Exception)
         End If
     End Sub
+    Private Sub getAlbumID(txt As Guna2ComboBox)
+        Try
+            sql.AddParam("@AlbumName", txt.Text)
+            sql.ExecQuery("SELECT AlbumID FROM ALBUMS WHERE Title = @AlbumName")
+            If sql.RecordCount = 1 Then
+                albumId = Convert.ToInt32(sql.SQLDS.Tables(0).Rows(0)("AlbumID"))
+            End If
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+
+    End Sub
+
     Public Sub clearAlbum()
         Guna2ComboBox1.Items.Clear()
         sql.SQLDS.Clear()
@@ -72,6 +86,18 @@
         End If
     End Sub
     Private Sub Guna2Button7_Click(sender As Object, e As EventArgs) Handles Guna2Button7.Click
-        ImageMusic.musicSave(selectedFilePath, Guna2ComboBox1, Guna2TextBox2)
+        If String.IsNullOrEmpty(Guna2TextBox1.Text) Or String.IsNullOrEmpty(Guna2TextBox2.Text) Or String.IsNullOrEmpty(Guna2ComboBox1.Text) Then
+            MsgBox("Fill all the information !!")
+        Else
+            getAlbumID(Guna2ComboBox1)
+            ImageMusic.musicSave(selectedFilePath, Guna2ComboBox1, Guna2TextBox2)
+            Guna2Panel1.Hide()
+            Guna2TextBox1.Clear()
+            Guna2TextBox2.Clear()
+        End If
+    End Sub
+
+    Private Sub Guna2CircleButton1_Click(sender As Object, e As EventArgs) Handles Guna2CircleButton1.Click
+
     End Sub
 End Class

@@ -48,4 +48,5 @@ Public Class Func
             MessageBox.Show("An error occurred: " & ex.Message)
         End Try
     End Sub
+
 End Class

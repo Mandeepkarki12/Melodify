@@ -1,14 +1,10 @@
 ﻿Imports System.IO
 Imports NAudio.Wave
-
 Public Class test
     Public sql As New SQLControl
-
     Private Sub test_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         ' Initialize SQL connection
-
     End Sub
-
     Public Sub musicSave(filePath As String)
         Try
             If Not sql.hasConnection() Then
@@ -35,21 +31,19 @@ Public Class test
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         ' Call musicSave method with the file path
         musicSave("C:\Users\karki\Downloads\Farkanna Hola ( Official Lyrical Video ) #shotoniphone.mp3")
+
     End Sub
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
         Try
             Dim sql As New SQLControl()
-
             ' Retrieve song data from database
             Dim query As String = "SELECT SongData FROM PreSongs WHERE Title = 'Farkanna Hola'"
             sql.ExecQuery(query)
-
             ' Check for exceptions
             If Not String.IsNullOrEmpty(sql.Exception) Then
                 MessageBox.Show("An error occurred during SQL query execution: " & sql.Exception)
                 Return
             End If
-
             ' Check if there's any data returned
             If sql.RecordCount > 0 Then
                 ' Get song data

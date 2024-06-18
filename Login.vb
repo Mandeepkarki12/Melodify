@@ -22,27 +22,34 @@ Public Class Login
         End If
     End Function
     Private Sub LoginButton_Click(sender As Object, e As EventArgs) Handles LoginButton.Click
-        If authentication() = True Then
-            Dim home As New Home
-            MsgBox("login Sucessfull")
-            sql.AddParam("@userId", userId)
-            sql.ExecQuery("SELECT ArtistId FROM ARTISTS WHERE UserId = @userId")
-            If sql.RecordCount = 1 Then
-                artistId = Convert.ToInt32(sql.SQLDS.Tables(0).Rows(0)("ArtistId"))
-            End If
-            MsgBox(artistId)
-            sql.AddParam("@artistId", artistId)
-            sql.ExecQuery("SELECT AlbumID FROM ALBUMS WHERE ArtistID = @artistId")
-            If sql.RecordCount = 1 Then
-                albumId = Convert.ToInt32(sql.SQLDS.Tables(0).Rows(0)("AlbumID"))
-            End If
-            MsgBox(albumId)
-            Me.Hide()
-            home.Show()
+        If authentication() Then
+            MsgBox("Login Successful")
+            Try
+                ' Retrieve Artist ID
+                sql.SQLDS.Clear()
+                sql.AddParam("@user", userId)
+                sql.ExecQuery("SELECT ArtistId FROM ARTISTS WHERE UserId = @user")
+
+                If sql.RecordCount = 1 Then
+                    artistId = Convert.ToInt32(sql.SQLDS.Tables(0).Rows(0)("ArtistId"))
+                    MsgBox("Artist ID: " & artistId)
+                Else
+                    MsgBox("No artist ID found for this user.")
+                End If
+                ' Navigate to Home form
+                Dim home As New Home
+                Me.Hide()
+                home.Show()
+
+            Catch ex As Exception
+                MsgBox("An error occurred: " & ex.Message)
+            End Try
+
         Else
             MsgBox("Login Failed")
         End If
     End Sub
+
 
     Private Sub ShowPass_CheckedChanged(sender As Object, e As EventArgs) Handles ShowPass.CheckedChanged
         If ShowPass.Checked = True Then
@@ -50,5 +57,9 @@ Public Class Login
         Else
             TxtPassword.PasswordChar = "*"
         End If
+    End Sub
+
+    Private Sub Login_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
     End Sub
 End Class

@@ -1,6 +1,8 @@
 ﻿Imports System.ComponentModel
+Imports System.IO
 Imports System.Web.UI.WebControls
 Imports System.Windows.Forms.VisualStyles.VisualStyleElement
+Imports Guna.UI2.WinForms
 Imports NAudio
 Imports NAudio.Wave
 Public Class Home
@@ -15,6 +17,7 @@ Public Class Home
     Private musicName As String
     Private singer As String
     Private volumes As Single = 0.5F
+    Private Sql As New SQLControl
     Private Sub ClearSong()
         Try
             If myPlayer.PlaybackState = PlaybackState.Playing Then
@@ -80,18 +83,40 @@ Public Class Home
             myPlayer.Volume = volumes
         End If
     End Sub
-    ' Popular songs Section :
-    Private Sub Guna2PictureBox3_Click(sender As Object, e As EventArgs) Handles Guna2PictureBox3.Click
-        'farkanna hola 
+    Private Function getMusictemp(musicName As String) As String
+        Try
+            Sql.AddParam("@music", musicName)
+            Dim query As String = "SELECT SongData FROM PreSongs WHERE Title = @music "
+            Sql.ExecQuery(query)
+            ' Check for exceptions
+            If Not String.IsNullOrEmpty(Sql.Exception) Then
+                MessageBox.Show("An error occurred during SQL query execution: " & Sql.Exception)
+                Return Nothing
+            End If
+            If Sql.RecordCount > 0 Then
+                Dim songData As Byte() = DirectCast(Sql.SQLDS.Tables(0).Rows(0)("SongData"), Byte())
+                Dim tempFilePath As String = Path.GetTempFileName()
+                File.WriteAllBytes(tempFilePath, songData)
+                Return tempFilePath
+            End If
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+        Return Nothing
+    End Function
+    Private Sub displayMusictemp(picBox As Object, musicName As String, SingerName As String)
         Guna2ImageButton15.Checked = False
         ClearSong()
         Files = ""
-        Guna2PictureBox14.Image = Melodify.My.Resources.Resources.Farkanna_Hola
-        musicName = "Farkanna Hola"
-        singer = "John Chamling Rai"
+        Guna2PictureBox14.Image = picBox
         Label34.Text = musicName
-        Label33.Text = singer
-        Files = "C:\Users\karki\Downloads\Farkanna Hola ( Official Lyrical Video ) #shotoniphone.mp3"
+        Label33.Text = SingerName
+        Files = getMusictemp(musicName)
+    End Sub
+    ' Popular songs Section :
+    Private Sub Guna2PictureBox3_Click(sender As Object, e As EventArgs) Handles Guna2PictureBox3.Click
+        'farkanna hola 
+        displayMusictemp(Melodify.My.Resources.Resources.Farkanna_Hola, "Farkanna Hola", "John Chamling Rai")
     End Sub
     Private Sub Guna2PictureBox4_Click(sender As Object, e As EventArgs) Handles Guna2PictureBox4.Click
         'sunflower 

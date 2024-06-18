@@ -460,5 +460,17 @@
   <ItemGroup>
     <None Include="Resources\PickItUpDexter.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\delete-filled-svgrepo-com %282%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\delete-filled-svgrepo-com.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\exit-svgrepo-com %282%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\exit-svgrepo-com %281%29.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

@@ -40,15 +40,6 @@
                 MsgBox("Error updating Users table: " & sql.Exception)
                 Exit Sub ' Exit if there's an error
             End If
-            ' Insert into ARTISTS table
-            sql.AddParam("@user", userId)
-            sql.AddParam("@Bio", BioTxt.Text)
-            sql.AddParam("@Genre", GenreTxt.Text)
-            sql.ExecQuery("INSERT INTO ARTISTS (UserId, ArtistBIO, Genre) VALUES (@user, @Bio, @Genre)")
-            If Not String.IsNullOrEmpty(sql.Exception) Then
-                MsgBox("Error inserting into ARTISTS table: " & sql.Exception)
-                Exit Sub ' Exit if there's an error
-            End If
             ' Update visibility in the existing instance of Setting form
             settingsForm.buttonVisible()
             settingsForm.Refresh() ' Optional: Refresh the form if needed
