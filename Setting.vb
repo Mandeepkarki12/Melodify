@@ -1,5 +1,4 @@
 ﻿Imports Guna.UI2.WinForms
-
 Public Class Setting
     Dim sql As New SQLControl
     Public userName As String
@@ -22,12 +21,27 @@ Public Class Setting
         End If
     End Sub
     Private Sub Setting_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        buttonVisible()
-        getAlbums()
-        Guna2Panel1.Hide()
-        ImageMusic.LoadImage(Guna2CirclePictureBox1, userId)
-        Label1.Text = userName
+        If userId > 0 Then
+            ' If user is logged in, load user-specific data
+            buttonVisible()
+            getAlbums()
+            Guna2Panel1.Hide()
+            ImageMusic.LoadImage(Guna2CirclePictureBox1, userId)
+            Label1.Text = userName
+        Else
+            ' If no user is logged in, reset UI elements
+            Guna2Button1.Visible = False
+            Guna2Button2.Visible = False
+            Guna2ComboBox1.Items.Clear()
+            Guna2TextBox1.Clear()
+            Guna2TextBox2.Clear()
+            Guna2Panel1.Hide()
+            Label1.Text = "Guest"
+
+        End If
     End Sub
+
+
     Private Sub Guna2Button1_Click(sender As Object, e As EventArgs) Handles Guna2Button1.Click
         Dim Artistsg As New ArtistSignup(Me) ' Pass reference to current instance
         Artistsg.Show()
@@ -96,8 +110,72 @@ Public Class Setting
             Guna2TextBox2.Clear()
         End If
     End Sub
-
-    Private Sub Guna2CircleButton1_Click(sender As Object, e As EventArgs) Handles Guna2CircleButton1.Click
-
+    Private Sub Guna2CircleButton2_Click(sender As Object, e As EventArgs) Handles Guna2CircleButton2.Click
+        logout()
     End Sub
+    Private Sub logout()
+        ' Reset user IDs
+        userId = 0
+        artistId = 0
+        ' Get the parent form (Home)
+        Dim homeForm As Home = TryCast(Me.ParentForm, Home)
+        If homeForm IsNot Nothing Then
+            ' Close the Home form
+            homeForm.Close()
+        End If
+        ' Show the Login form
+        Dim loginForm As New Login()
+        loginForm.Show()
+        ' Close the current Setting form
+        Me.Close()
+    End Sub
+    Private Sub Guna2CircleButton1_Click(sender As Object, e As EventArgs) Handles Guna2CircleButton1.Click
+        Dim result As DialogResult = MessageBox.Show("Are you sure you want to Delete your Account ?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+        If result = DialogResult.Yes Then
+            delUsers()
+        Else
+            ' Optionally, handle the case where the user chooses No
+            MessageBox.Show("Operation canceled.")
+        End If
+    End Sub
+    Private Sub delUsers()
+        If artistId > 0 Then
+            ' Delete songs associated with the artist
+            sql.AddParam("@artist", artistId)
+            sql.ExecQuery("DELETE FROM SONGS WHERE ArtistID = @artist")
+            If Not String.IsNullOrEmpty(sql.Exception) Then
+                MsgBox(sql.Exception)
+            End If
+
+            ' Delete albums associated with the artist
+            sql.AddParam("@artist", artistId)
+            sql.ExecQuery("DELETE FROM ALBUMS WHERE ArtistID = @artist")
+            If Not String.IsNullOrEmpty(sql.Exception) Then
+                MsgBox(sql.Exception)
+            End If
+
+            ' Delete artist record
+            sql.AddParam("@user", userId)
+            sql.ExecQuery("DELETE FROM ARTISTS WHERE UserID = @user")
+            If Not String.IsNullOrEmpty(sql.Exception) Then
+                MsgBox(sql.Exception)
+            End If
+        End If
+        ' Delete user record
+        sql.AddParam("@user", userId)
+        sql.ExecQuery("DELETE FROM USERS WHERE UserId = @user")
+        If Not String.IsNullOrEmpty(sql.Exception) Then
+            MsgBox(sql.Exception)
+        Else
+            MsgBox("User Deleted Successfully !!")
+            ' Reset user and artist IDs
+            userId = 0
+            artistId = 0
+            ' Clear any cached data
+            clearAlbum()
+            sql.SQLDS.Clear()
+            logout()
+        End If
+    End Sub
+
 End Class
