@@ -20,17 +20,22 @@ Public Class Func
             End Using
         End If
     End Sub
-    Public Sub musicSave(filePath As String, comboBox As Guna2ComboBox, text1 As Guna2TextBox)
+    Public Sub musicSave(filePath As String, comboBox As Guna2ComboBox, text1 As Guna2TextBox, imagePath As String)
         Try
             If Not sql.hasConnection() Then
                 MessageBox.Show("Connection to the database failed.")
                 Return
             End If
+            Dim img As Image = Image.FromFile(imagePath)
+            Dim ms As New MemoryStream()
+            img.Save(ms, img.RawFormat)
+            Dim buffer As Byte() = ms.GetBuffer
             ' Read file data
             Dim fileData As Byte() = File.ReadAllBytes(filePath)
             ' Insert file data into database
-            Dim query As String = "INSERT INTO Songs (Title, ArtistID , AlbumID, ReleaseDate , SongData) VALUES (@Title ,@ArtistId, @AlbumId , @Dat ,  @SongData)"
+            Dim query As String = "INSERT INTO Songs (Title, ArtistID , AlbumID, ReleaseDate , SongData, SongImage) VALUES (@Title ,@ArtistId, @AlbumId , @Dat ,  @SongData, @image)"
             sql.AddParam("@SongData", fileData)
+            sql.AddParam("@image", buffer)
             sql.AddParam("@Album", comboBox.Text)
             sql.AddParam("@Dat", DateTime.Now)
             sql.AddParam("@Title", text1.Text)

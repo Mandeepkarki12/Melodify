@@ -38,10 +38,12 @@ Partial Class Setting
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Guna2ComboBox1 = New Guna.UI2.WinForms.Guna2ComboBox()
         Me.Label2 = New System.Windows.Forms.Label()
-        Me.Guna2CircleButton1 = New Guna.UI2.WinForms.Guna2CircleButton()
-        Me.Guna2CirclePictureBox1 = New Guna.UI2.WinForms.Guna2CirclePictureBox()
         Me.Guna2CircleButton2 = New Guna.UI2.WinForms.Guna2CircleButton()
+        Me.Guna2CircleButton1 = New Guna.UI2.WinForms.Guna2CircleButton()
+        Me.Guna2CirclePictureBox2 = New Guna.UI2.WinForms.Guna2CirclePictureBox()
+        Me.Guna2CirclePictureBox1 = New Guna.UI2.WinForms.Guna2CirclePictureBox()
         Me.Guna2Panel1.SuspendLayout()
+        CType(Me.Guna2CirclePictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Guna2CirclePictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -96,6 +98,7 @@ Partial Class Setting
         '
         'Guna2Panel1
         '
+        Me.Guna2Panel1.Controls.Add(Me.Guna2CirclePictureBox2)
         Me.Guna2Panel1.Controls.Add(Me.Guna2Button7)
         Me.Guna2Panel1.Controls.Add(Me.Guna2TextBox2)
         Me.Guna2Panel1.Controls.Add(Me.Label5)
@@ -107,7 +110,7 @@ Partial Class Setting
         Me.Guna2Panel1.Controls.Add(Me.Guna2ComboBox1)
         Me.Guna2Panel1.Location = New System.Drawing.Point(-1, 279)
         Me.Guna2Panel1.Name = "Guna2Panel1"
-        Me.Guna2Panel1.Size = New System.Drawing.Size(746, 267)
+        Me.Guna2Panel1.Size = New System.Drawing.Size(1096, 323)
         Me.Guna2Panel1.TabIndex = 11
         '
         'Guna2Button7
@@ -121,7 +124,7 @@ Partial Class Setting
         Me.Guna2Button7.Font = New System.Drawing.Font("Microsoft JhengHei UI", 10.2!, System.Drawing.FontStyle.Bold)
         Me.Guna2Button7.ForeColor = System.Drawing.Color.White
         Me.Guna2Button7.ImageAlign = System.Windows.Forms.HorizontalAlignment.Right
-        Me.Guna2Button7.Location = New System.Drawing.Point(243, 213)
+        Me.Guna2Button7.Location = New System.Drawing.Point(508, 230)
         Me.Guna2Button7.Name = "Guna2Button7"
         Me.Guna2Button7.Size = New System.Drawing.Size(203, 40)
         Me.Guna2Button7.TabIndex = 17
@@ -139,7 +142,7 @@ Partial Class Setting
         Me.Guna2TextBox2.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.Guna2TextBox2.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.Guna2TextBox2.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.Guna2TextBox2.Location = New System.Drawing.Point(181, 90)
+        Me.Guna2TextBox2.Location = New System.Drawing.Point(446, 107)
         Me.Guna2TextBox2.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.Guna2TextBox2.Name = "Guna2TextBox2"
         Me.Guna2TextBox2.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
@@ -151,7 +154,7 @@ Partial Class Setting
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(73, 100)
+        Me.Label5.Location = New System.Drawing.Point(338, 117)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(68, 16)
         Me.Label5.TabIndex = 14
@@ -160,7 +163,7 @@ Partial Class Setting
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(81, 157)
+        Me.Label4.Location = New System.Drawing.Point(346, 174)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(39, 16)
         Me.Label4.TabIndex = 13
@@ -177,7 +180,7 @@ Partial Class Setting
         Me.Guna2Button5.Font = New System.Drawing.Font("Microsoft JhengHei UI", 10.2!, System.Drawing.FontStyle.Bold)
         Me.Guna2Button5.ForeColor = System.Drawing.Color.White
         Me.Guna2Button5.ImageAlign = System.Windows.Forms.HorizontalAlignment.Right
-        Me.Guna2Button5.Location = New System.Drawing.Point(490, 142)
+        Me.Guna2Button5.Location = New System.Drawing.Point(755, 159)
         Me.Guna2Button5.Name = "Guna2Button5"
         Me.Guna2Button5.Size = New System.Drawing.Size(155, 40)
         Me.Guna2Button5.TabIndex = 12
@@ -195,7 +198,7 @@ Partial Class Setting
         Me.Guna2TextBox1.FocusedState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.Guna2TextBox1.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.Guna2TextBox1.HoverState.BorderColor = System.Drawing.Color.FromArgb(CType(CType(94, Byte), Integer), CType(CType(148, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.Guna2TextBox1.Location = New System.Drawing.Point(180, 148)
+        Me.Guna2TextBox1.Location = New System.Drawing.Point(445, 165)
         Me.Guna2TextBox1.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.Guna2TextBox1.Name = "Guna2TextBox1"
         Me.Guna2TextBox1.PasswordChar = Global.Microsoft.VisualBasic.ChrW(0)
@@ -216,7 +219,7 @@ Partial Class Setting
         Me.Guna2Button4.Font = New System.Drawing.Font("Microsoft JhengHei UI", 10.2!, System.Drawing.FontStyle.Bold)
         Me.Guna2Button4.ForeColor = System.Drawing.Color.White
         Me.Guna2Button4.ImageAlign = System.Windows.Forms.HorizontalAlignment.Right
-        Me.Guna2Button4.Location = New System.Drawing.Point(490, 25)
+        Me.Guna2Button4.Location = New System.Drawing.Point(755, 42)
         Me.Guna2Button4.Name = "Guna2Button4"
         Me.Guna2Button4.Size = New System.Drawing.Size(216, 40)
         Me.Guna2Button4.TabIndex = 10
@@ -225,7 +228,7 @@ Partial Class Setting
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(73, 38)
+        Me.Label3.Location = New System.Drawing.Point(338, 55)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(86, 16)
         Me.Label3.TabIndex = 1
@@ -242,7 +245,7 @@ Partial Class Setting
         Me.Guna2ComboBox1.Font = New System.Drawing.Font("Segoe UI", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Guna2ComboBox1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(68, Byte), Integer), CType(CType(88, Byte), Integer), CType(CType(112, Byte), Integer))
         Me.Guna2ComboBox1.ItemHeight = 30
-        Me.Guna2ComboBox1.Location = New System.Drawing.Point(181, 25)
+        Me.Guna2ComboBox1.Location = New System.Drawing.Point(446, 42)
         Me.Guna2ComboBox1.Name = "Guna2ComboBox1"
         Me.Guna2ComboBox1.Size = New System.Drawing.Size(285, 36)
         Me.Guna2ComboBox1.TabIndex = 0
@@ -255,38 +258,6 @@ Partial Class Setting
         Me.Label2.Size = New System.Drawing.Size(48, 16)
         Me.Label2.TabIndex = 1
         Me.Label2.Text = "Label2"
-        '
-        'Guna2CircleButton1
-        '
-        Me.Guna2CircleButton1.CustomImages.ImageAlign = System.Windows.Forms.HorizontalAlignment.Center
-        Me.Guna2CircleButton1.DisabledState.BorderColor = System.Drawing.Color.DarkGray
-        Me.Guna2CircleButton1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
-        Me.Guna2CircleButton1.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
-        Me.Guna2CircleButton1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
-        Me.Guna2CircleButton1.FillColor = System.Drawing.Color.Transparent
-        Me.Guna2CircleButton1.Font = New System.Drawing.Font("Segoe UI", 9.0!)
-        Me.Guna2CircleButton1.ForeColor = System.Drawing.Color.White
-        Me.Guna2CircleButton1.HoverState.Image = Global.Melodify.My.Resources.Resources.delete_filled_svgrepo_com__2_
-        Me.Guna2CircleButton1.Image = Global.Melodify.My.Resources.Resources.delete_filled_svgrepo_com
-        Me.Guna2CircleButton1.ImageSize = New System.Drawing.Size(27, 27)
-        Me.Guna2CircleButton1.Location = New System.Drawing.Point(398, 26)
-        Me.Guna2CircleButton1.Name = "Guna2CircleButton1"
-        Me.Guna2CircleButton1.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle
-        Me.Guna2CircleButton1.Size = New System.Drawing.Size(82, 56)
-        Me.Guna2CircleButton1.TabIndex = 12
-        '
-        'Guna2CirclePictureBox1
-        '
-        Me.Guna2CirclePictureBox1.BackColor = System.Drawing.Color.Transparent
-        Me.Guna2CirclePictureBox1.ImageRotate = 0!
-        Me.Guna2CirclePictureBox1.Location = New System.Drawing.Point(41, 46)
-        Me.Guna2CirclePictureBox1.Name = "Guna2CirclePictureBox1"
-        Me.Guna2CirclePictureBox1.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle
-        Me.Guna2CirclePictureBox1.Size = New System.Drawing.Size(149, 112)
-        Me.Guna2CirclePictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.Guna2CirclePictureBox1.TabIndex = 0
-        Me.Guna2CirclePictureBox1.TabStop = False
-        Me.Guna2CirclePictureBox1.UseTransparentBackground = True
         '
         'Guna2CircleButton2
         '
@@ -307,11 +278,58 @@ Partial Class Setting
         Me.Guna2CircleButton2.Size = New System.Drawing.Size(84, 56)
         Me.Guna2CircleButton2.TabIndex = 13
         '
+        'Guna2CircleButton1
+        '
+        Me.Guna2CircleButton1.CustomImages.ImageAlign = System.Windows.Forms.HorizontalAlignment.Center
+        Me.Guna2CircleButton1.DisabledState.BorderColor = System.Drawing.Color.DarkGray
+        Me.Guna2CircleButton1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
+        Me.Guna2CircleButton1.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
+        Me.Guna2CircleButton1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
+        Me.Guna2CircleButton1.FillColor = System.Drawing.Color.Transparent
+        Me.Guna2CircleButton1.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.Guna2CircleButton1.ForeColor = System.Drawing.Color.White
+        Me.Guna2CircleButton1.HoverState.Image = Global.Melodify.My.Resources.Resources.delete_filled_svgrepo_com__2_
+        Me.Guna2CircleButton1.Image = Global.Melodify.My.Resources.Resources.delete_filled_svgrepo_com
+        Me.Guna2CircleButton1.ImageSize = New System.Drawing.Size(27, 27)
+        Me.Guna2CircleButton1.Location = New System.Drawing.Point(454, 31)
+        Me.Guna2CircleButton1.Name = "Guna2CircleButton1"
+        Me.Guna2CircleButton1.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle
+        Me.Guna2CircleButton1.Size = New System.Drawing.Size(82, 56)
+        Me.Guna2CircleButton1.TabIndex = 12
+        '
+        'Guna2CirclePictureBox2
+        '
+        Me.Guna2CirclePictureBox2.BackColor = System.Drawing.Color.Transparent
+        Me.Guna2CirclePictureBox2.FillColor = System.Drawing.Color.Transparent
+        Me.Guna2CirclePictureBox2.Image = Global.Melodify.My.Resources.Resources.image_plus_svgrepo_com
+        Me.Guna2CirclePictureBox2.ImageRotate = 0!
+        Me.Guna2CirclePictureBox2.Location = New System.Drawing.Point(94, 64)
+        Me.Guna2CirclePictureBox2.Name = "Guna2CirclePictureBox2"
+        Me.Guna2CirclePictureBox2.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle
+        Me.Guna2CirclePictureBox2.Size = New System.Drawing.Size(146, 102)
+        Me.Guna2CirclePictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.Guna2CirclePictureBox2.TabIndex = 18
+        Me.Guna2CirclePictureBox2.TabStop = False
+        Me.Guna2CirclePictureBox2.UseTransparentBackground = True
+        '
+        'Guna2CirclePictureBox1
+        '
+        Me.Guna2CirclePictureBox1.BackColor = System.Drawing.Color.Transparent
+        Me.Guna2CirclePictureBox1.ImageRotate = 0!
+        Me.Guna2CirclePictureBox1.Location = New System.Drawing.Point(41, 46)
+        Me.Guna2CirclePictureBox1.Name = "Guna2CirclePictureBox1"
+        Me.Guna2CirclePictureBox1.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle
+        Me.Guna2CirclePictureBox1.Size = New System.Drawing.Size(149, 112)
+        Me.Guna2CirclePictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.Guna2CirclePictureBox1.TabIndex = 0
+        Me.Guna2CirclePictureBox1.TabStop = False
+        Me.Guna2CirclePictureBox1.UseTransparentBackground = True
+        '
         'Setting
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(745, 546)
+        Me.ClientSize = New System.Drawing.Size(1095, 603)
         Me.Controls.Add(Me.Guna2CircleButton2)
         Me.Controls.Add(Me.Guna2CircleButton1)
         Me.Controls.Add(Me.Label2)
@@ -325,6 +343,7 @@ Partial Class Setting
         Me.Text = "Setting"
         Me.Guna2Panel1.ResumeLayout(False)
         Me.Guna2Panel1.PerformLayout()
+        CType(Me.Guna2CirclePictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.Guna2CirclePictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
@@ -349,4 +368,5 @@ Partial Class Setting
     Friend WithEvents Label5 As Label
     Friend WithEvents Guna2CircleButton1 As Guna.UI2.WinForms.Guna2CircleButton
     Friend WithEvents Guna2CircleButton2 As Guna.UI2.WinForms.Guna2CircleButton
+    Friend WithEvents Guna2CirclePictureBox2 As Guna.UI2.WinForms.Guna2CirclePictureBox
 End Class

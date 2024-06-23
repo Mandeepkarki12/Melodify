@@ -5,11 +5,14 @@ Public Class Setting
     Private ArtistCheck As Boolean
     Public ImageMusic As New Func
     Dim selectedFilePath As String
+    Dim emailName As String
+    Dim filepath As String = ""
     Public Sub buttonVisible()
         sql.AddParam("@user", userId)
-        sql.ExecQuery("SELECT UserName, ArtistCheck FROM USERS WHERE UserId = @user")
+        sql.ExecQuery("SELECT UserName, ArtistCheck , Email FROM USERS WHERE UserId = @user")
         If sql.RecordCount = 1 Then
             userName = Convert.ToString(sql.SQLDS.Tables(0).Rows(0)("UserName"))
+            emailName = Convert.ToString(sql.SQLDS.Tables(0).Rows(0)("Email"))
             ArtistCheck = Convert.ToBoolean(sql.SQLDS.Tables(0).Rows(0)("ArtistCheck"))
             If ArtistCheck Then
                 Guna2Button1.Visible = False
@@ -28,6 +31,7 @@ Public Class Setting
             Guna2Panel1.Hide()
             ImageMusic.LoadImage(Guna2CirclePictureBox1, userId)
             Label1.Text = userName
+            Label2.Text = emailName
         Else
             ' If no user is logged in, reset UI elements
             Guna2Button1.Visible = False
@@ -37,7 +41,6 @@ Public Class Setting
             Guna2TextBox2.Clear()
             Guna2Panel1.Hide()
             Label1.Text = "Guest"
-
         End If
     End Sub
 
@@ -100,11 +103,11 @@ Public Class Setting
         End If
     End Sub
     Private Sub Guna2Button7_Click(sender As Object, e As EventArgs) Handles Guna2Button7.Click
-        If String.IsNullOrEmpty(Guna2TextBox1.Text) Or String.IsNullOrEmpty(Guna2TextBox2.Text) Or String.IsNullOrEmpty(Guna2ComboBox1.Text) Then
+        If String.IsNullOrEmpty(filepath) Or String.IsNullOrEmpty(Guna2TextBox1.Text) Or String.IsNullOrEmpty(Guna2TextBox2.Text) Or String.IsNullOrEmpty(Guna2ComboBox1.Text) Then
             MsgBox("Fill all the information !!")
         Else
             getAlbumID(Guna2ComboBox1)
-            ImageMusic.musicSave(selectedFilePath, Guna2ComboBox1, Guna2TextBox2)
+            ImageMusic.musicSave(selectedFilePath, Guna2ComboBox1, Guna2TextBox2, filepath)
             Guna2Panel1.Hide()
             Guna2TextBox1.Clear()
             Guna2TextBox2.Clear()
@@ -153,7 +156,6 @@ Public Class Setting
             If Not String.IsNullOrEmpty(sql.Exception) Then
                 MsgBox(sql.Exception)
             End If
-
             ' Delete artist record
             sql.AddParam("@user", userId)
             sql.ExecQuery("DELETE FROM ARTISTS WHERE UserID = @user")
@@ -178,4 +180,20 @@ Public Class Setting
         End If
     End Sub
 
+    Private Sub Guna2CirclePictureBox2_Click(sender As Object, e As EventArgs) Handles Guna2CirclePictureBox2.Click
+        Dim openFileDialog1 As New OpenFileDialog()
+        openFileDialog1.Filter = "Image Files (*.png;*.jpg;*.jpeg)|*.png;*.jpg;*.jpeg"
+        openFileDialog1.Title = "Select an Image File"
+        ' Show the dialog and check if the user clicked OK
+        If openFileDialog1.ShowDialog() = DialogResult.OK Then
+            filePath = openFileDialog1.FileName
+            ' Load the selected image into PictureBox
+            Try
+                Dim img As Image = Image.FromFile(filePath)
+                Guna2CirclePictureBox2.Image = img
+            Catch ex As Exception
+
+            End Try
+        End If
+    End Sub
 End Class

@@ -49,8 +49,6 @@ Public Class Login
             MsgBox("Login Failed")
         End If
     End Sub
-
-
     Private Sub ShowPass_CheckedChanged(sender As Object, e As EventArgs) Handles ShowPass.CheckedChanged
         If ShowPass.Checked = True Then
             TxtPassword.PasswordChar = ""
@@ -58,7 +56,6 @@ Public Class Login
             TxtPassword.PasswordChar = "*"
         End If
     End Sub
-
     Private Sub Login_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
     End Sub
