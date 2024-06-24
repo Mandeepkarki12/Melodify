@@ -173,6 +173,12 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Albums.resx">
+      <DependentUpon>Albums.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Artist.resx">
+      <DependentUpon>Artist.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ArtistSignup.resx">
       <DependentUpon>ArtistSignup.vb</DependentUpon>
     </EmbeddedResource>

@@ -1,9 +1,6 @@
 ﻿Imports System.IO
 
 Public Class SongForm
-    Private Sub SongForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
-    End Sub
     Private sql As New SQLControl
     Private home As Home ' Declare a variable to hold the passed Home instance
 
@@ -101,7 +98,7 @@ Public Class SongForm
             titleLbl.Text = s.songTitle
             titleLbl.Dock = DockStyle.Top
             titleLbl.TextAlign = ContentAlignment.MiddleCenter
-            titleLbl.Font = New Font("Arial", 10, FontStyle.Bold)
+            titleLbl.Font = New Font("Microsoft YaHei UI", 10, FontStyle.Bold)
             songPanel.Controls.Add(titleLbl)
 
             ' Create and add a Label for the artist name
@@ -109,7 +106,7 @@ Public Class SongForm
             artistLbl.Text = s.artistName
             artistLbl.Dock = DockStyle.Top
             artistLbl.TextAlign = ContentAlignment.MiddleCenter
-            artistLbl.Font = New Font("Arial", 9, FontStyle.Italic)
+            artistLbl.Font = New Font("Microsoft YaHei UI", 8, FontStyle.Regular)
             songPanel.Controls.Add(artistLbl)
 
             ' Assign the Tag property to store song information
@@ -177,5 +174,4 @@ Public Class SongForm
             e.Handled = True ' To prevent the ding sound when Enter is pressed
         End If
     End Sub
-
 End Class
