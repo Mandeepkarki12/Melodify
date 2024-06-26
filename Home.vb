@@ -135,145 +135,59 @@ Public Class Home
 
     Public Sub Guna2PictureBox4_Click(sender As Object, e As EventArgs) Handles Guna2PictureBox4.Click
         'sunflower 
-        Guna2ImageButton15.Checked = False
-        ClearSong()
-        Files = ""
-        Guna2PictureBox14.Image = Melodify.My.Resources.Resources.Sunflowefr
-        musicName = "Sunflower"
-        singer = "Post Malone"
-        Label34.Text = musicName
-        Label33.Text = singer
-        Files = "C:\Users\karki\Downloads\Post Malone, Swae Lee - Sunflower (Spider-Man_ Into the Spider-Verse).mp3"
+        displayMusictemp(Melodify.My.Resources.Resources.Sunflowefr, "Sunflower", "Post Malone")
+
     End Sub
 
     Public Sub Guna2PictureBox2_Click(sender As Object, e As EventArgs) Handles Guna2PictureBox2.Click
         ' Like That
-        Guna2ImageButton15.Checked = False
-        ClearSong()
-        Files = ""
-        Guna2PictureBox14.Image = Melodify.My.Resources.Resources.LikeThat
-        musicName = "Like That"
-        singer = "Kendrik Lemar"
-        Label34.Text = musicName
-        Label33.Text = singer
-        Files = "C:\Users\karki\Downloads\Future, Metro Boomin - Like That (Official Audio).mp3"
+        displayMusictemp(Melodify.My.Resources.Resources.LikeThat, "Like That", "Kendrik Lemar")
     End Sub
 
     Public Sub Guna2PictureBox7_Click(sender As Object, e As EventArgs) Handles Guna2PictureBox7.Click
         ' I Had Some Help
-        Guna2ImageButton15.Checked = False
-        ClearSong()
-        Files = ""
-        Guna2PictureBox14.Image = Melodify.My.Resources.Resources.PostMalone
-        musicName = "I Had Some Help"
-        singer = "Post Malone"
-        Label34.Text = musicName
-        Label33.Text = singer
-        Files = "C:\Users\karki\Downloads\Post Malone ft. Morgan Wallen - I Had Some Help (Official Lyric Video).mp3"
+        displayMusictemp(Melodify.My.Resources.Resources.PostMalone, "I had Some Help", "Post Malone")
     End Sub
 
     Public Sub Guna2PictureBox6_Click(sender As Object, e As EventArgs) Handles Guna2PictureBox6.Click
         'Expresso
-        Guna2ImageButton15.Checked = False
-        ClearSong()
-        Files = ""
-        Guna2PictureBox14.Image = Melodify.My.Resources.Resources.Espresso___Sabrina_Carpenter
-        musicName = "Expresso"
-        singer = "Sabrina Carpenter"
-        Label34.Text = musicName
-        Label33.Text = singer
-        Files = "C:\Users\karki\Downloads\Sabrina Carpenter - Espresso (Official Video).mp3"
+        displayMusictemp(Melodify.My.Resources.Resources.Espresso___Sabrina_Carpenter, "Espresso", "Sabrina Carpenter")
     End Sub
 
     Public Sub Guna2PictureBox5_Click(sender As Object, e As EventArgs) Handles Guna2PictureBox5.Click
         'Never Let Go
-        Guna2ImageButton15.Checked = False
-        ClearSong()
-        Files = ""
-        Guna2PictureBox14.Image = Melodify.My.Resources.Resources.Never_Let_go
-        musicName = "Never Let Go"
-        singer = "Jeon Jungkook"
-        Label34.Text = musicName
-        Label33.Text = singer
-        Files = "C:\Users\karki\Downloads\Jung Kook (정국) 'Never Let Go' Lyrics.mp3"
+        displayMusictemp(Melodify.My.Resources.Resources.Never_Let_go, "Never Let Go", "Jeon JungKook")
     End Sub
 
     Public Sub Guna2ImageButton2_Click(sender As Object, e As EventArgs) Handles Guna2ImageButton2.Click
         ' like That
-        Guna2ImageButton15.Checked = False
-        ClearSong()
-        Files = ""
-        Guna2PictureBox14.Image = Melodify.My.Resources.Resources.LikeThat
-        musicName = "Like That"
-        singer = "Kendrik Lemar"
-        Label34.Text = musicName
-        Label33.Text = singer
-        Files = "C:\Users\karki\Downloads\Future, Metro Boomin - Like That (Official Audio).mp3"
+        displayMusictemp(Melodify.My.Resources.Resources.LikeThat, "Like That", "Kendrik Lemar")
     End Sub
 
     Public Sub Guna2ImageButton3_Click(sender As Object, e As EventArgs) Handles Guna2ImageButton3.Click
         ' vanana matra
-        Guna2ImageButton15.Checked = False
-        ClearSong()
-        Files = ""
-        Guna2PictureBox14.Image = Melodify.My.Resources.Resources.vanana
-        musicName = "Vanana Matra"
-        singer = "John Champling Rai"
-        Label34.Text = musicName
-        Label33.Text = singer
-        Files = "C:\Users\karki\Downloads\Vanana Matra.mp3"
+        displayMusictemp(Melodify.My.Resources.Resources.vanana, "Vanana Matra", "John Chamling Rai")
     End Sub
 
     Public Sub Guna2ImageButton5_Click(sender As Object, e As EventArgs) Handles Guna2ImageButton5.Click
         'Dynamite
-        Guna2ImageButton15.Checked = False
-        ClearSong()
-        Files = ""
-        Guna2PictureBox14.Image = Melodify.My.Resources.Resources.Dynamite
-        musicName = "Dynamite"
-        singer = "BTS"
-        Label34.Text = musicName
-        Label33.Text = singer
-        Files = "C:\Users\karki\Downloads\BTS (방탄소년단) 'Dynamite' Official MV.mp3"
+        displayMusictemp(Melodify.My.Resources.Resources.Dynamite, "Dynamite", "BTS")
     End Sub
 
     Public Sub Guna2ImageButton9_Click(sender As Object, e As EventArgs) Handles Guna2ImageButton9.Click
         ' chitthi Bitra
-        Guna2ImageButton15.Checked = False
-        ClearSong()
-        Files = ""
-        Guna2PictureBox14.Image = Melodify.My.Resources.Resources.Chitthi_bitra
-        musicName = "Chitthi Bitra"
-        singer = "Sajjan Raj Vaidya"
-        Label34.Text = musicName
-        Label33.Text = singer
-        Files = "C:\Users\karki\Downloads\Sajjan Raj Vaidya - Chitthi Bhitra [Official Release].mp3"
+        displayMusictemp(Melodify.My.Resources.Resources.Chitthi_bitra, "Chitthi Bhitra", "Sajjan Raj Vaidya")
     End Sub
 
     Public Sub Guna2ImageButton11_Click(sender As Object, e As EventArgs) Handles Guna2ImageButton11.Click
         ' Pick It Up
-        Guna2ImageButton15.Checked = False
-        ClearSong()
-        Files = ""
-        Guna2PictureBox14.Image = Melodify.My.Resources.Resources.PickItUpDexter
-        musicName = "Pick It Up"
-        singer = "Famous Dex"
-        Label34.Text = musicName
-        Label33.Text = singer
-        Files = "C:\Users\karki\Downloads\Famous Dex - Pick It Up ft. ASAP Rocky (Official Audio).mp3"
+        displayMusictemp(Melodify.My.Resources.Resources.PickItUpDexter, "Pick It Up", "Famous Dex")
+
     End Sub
 
     Public Sub Guna2ImageButton7_Click(sender As Object, e As EventArgs) Handles Guna2ImageButton7.Click
         ' Super Shy
-        Guna2ImageButton15.Checked = False
-        ClearSong()
-        Files = ""
-        Guna2PictureBox14.Image = Melodify.My.Resources.Resources.SuperShy
-        musicName = "Super Shy"
-        singer = "New Jeans"
-        Label34.Text = musicName
-        Label33.Text = singer
-        Files = "C:\Users\karki\Downloads\NewJeans - Super Shy (Lyrics).mp3"
+        displayMusictemp(Melodify.My.Resources.Resources.SuperShy, "Super Shy", "New Jeans")
     End Sub
 
     Public Sub childForm(ByVal panel As Form)
@@ -286,7 +200,8 @@ Public Class Home
     End Sub
 
     Public Sub Guna2Button1_Click(sender As Object, e As EventArgs) Handles Guna2Button1.Click
-        childForm(Artist)
+        Dim artistForm As New Artist(Me)
+        childForm(artistForm)
     End Sub
 
     Public Sub Guna2Button2_Click(sender As Object, e As EventArgs) Handles Guna2Button2.Click
@@ -295,7 +210,8 @@ Public Class Home
     End Sub
 
     Public Sub Guna2Button3_Click(sender As Object, e As EventArgs) Handles Guna2Button3.Click
-        childForm(Albums)
+        Dim albumForm As New Albums(Me)
+        childForm(albumForm)
     End Sub
     Public Sub Guna2CirclePictureBox2_Click(sender As Object, e As EventArgs) Handles Guna2CirclePictureBox2.Click
         childForm(Setting)
@@ -311,7 +227,5 @@ Public Class Home
         Guna2Panel11.Hide()
     End Sub
 
-    Private Sub Guna2Panel2_Paint(sender As Object, e As PaintEventArgs) Handles Guna2Panel2.Paint
 
-    End Sub
 End Class

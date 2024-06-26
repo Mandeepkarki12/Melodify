@@ -3,7 +3,13 @@ Imports System.IO
 
 Public Class Artist
     Private sql As New SQLControl
+    Private home As Home ' Declare a variable to hold the passed Home instance
 
+    ' Modify the constructor to accept a Home instance
+    Public Sub New(homeInstance As Home)
+        InitializeComponent()
+        home = homeInstance ' Assign the passed Home instance to the variable
+    End Sub
     Private Sub FlowLayoutPanel1_Paint(sender As Object, e As PaintEventArgs) Handles FlowLayoutPanel1.Paint
 
     End Sub

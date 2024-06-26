@@ -2,7 +2,13 @@
 
 Public Class Albums
     Private Sql As New SQLControl
+    Private home As Home ' Declare a variable to hold the passed Home instance
 
+    ' Modify the constructor to accept a Home instance
+    Public Sub New(homeInstance As Home)
+        InitializeComponent()
+        home = homeInstance ' Assign the passed Home instance to the variable
+    End Sub
     Class Album
         Public albumName As String
         Public albumUserName As String
