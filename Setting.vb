@@ -124,6 +124,7 @@ Public Class Setting
         Dim homeForm As Home = TryCast(Me.ParentForm, Home)
         If homeForm IsNot Nothing Then
             ' Close the Home form
+            homeForm.ClearSong()
             homeForm.Close()
         End If
         ' Show the Login form
