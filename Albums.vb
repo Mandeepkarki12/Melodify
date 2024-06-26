@@ -9,12 +9,17 @@ Public Class Albums
         InitializeComponent()
         home = homeInstance ' Assign the passed Home instance to the variable
     End Sub
+    Public songForm As SongForm
+    Public Sub New(songFormInstance As SongForm)
+        InitializeComponent()
+        songForm = songFormInstance ' Assign the passed Home instance to the variable
+    End Sub
+
     Class Album
         Public albumName As String
         Public albumUserName As String
         Public albumImage As Image = Melodify.My.Resources.albums_sharp_svgrepo_com__1_
-
-
+        Public albumId As Integer
     End Class
 
     Private Function AlbumsList(query As String) As List(Of Album)
@@ -28,6 +33,7 @@ Public Class Albums
             Dim album As New Album()
             album.albumName = Convert.ToString(row("AlbumName"))
             album.albumUserName = Convert.ToString(row("ArtistName"))
+            album.albumId = Convert.ToInt32(row("AlbumId"))
             albums.Add(album)
         Next
         Return albums
@@ -38,7 +44,6 @@ Public Class Albums
         Dim albums As List(Of Album) = AlbumsList(query)
 
         ' Debug output
-        MsgBox("Number of albums fetched: " & albums.Count.ToString())
 
         ' Clear any existing controls in the FlowLayoutPanel
         FlowLayoutPanel1.Controls.Clear()
@@ -93,8 +98,6 @@ Public Class Albums
         Next
     End Sub
 
-
-
     Private Sub AlbumPanel_Click(sender As Object, e As EventArgs)
         ' Retrieve the clicked control, which might be the panel or any of its child controls
         Dim clickedControl As Control = DirectCast(sender, Control)
@@ -102,25 +105,59 @@ Public Class Albums
         Dim parentPanel As Panel = If(TypeOf clickedControl Is Panel, DirectCast(clickedControl, Panel), DirectCast(clickedControl.Parent, Panel))
         ' Retrieve the album information from the Tag property
         Dim a As Album = DirectCast(parentPanel.Tag, Album)
-        ' Update the main form with the album information
-        MsgBox("Album clicked: " & a.albumName)
+
+        ' Create a new instance of SongForm and pass the Home instance
+        Dim songForm As New SongForm(home)
+
+
+        ' Define the SQL query with the INNER JOIN on the Albums table
+        Dim query As String = "
+            SELECT 
+                s.SongID,
+                s.Title AS SongTitle,
+                a.ArtistId,
+                u.UserName,
+                s.SongData,
+                s.SongImage
+            FROM 
+                dbo.Songs s
+            INNER JOIN 
+                dbo.Artists a ON s.ArtistID = a.ArtistId
+            INNER JOIN 
+                dbo.Users u ON a.UserId = u.UserId
+            INNER JOIN 
+                dbo.Albums al ON s.AlbumId = al.AlbumId
+            WHERE 
+                s.AlbumId = " & a.albumId & "  "
+
+        ' Check for SQL errors
+        If Not String.IsNullOrEmpty(songForm.sql.Exception) Then
+            MsgBox(songForm.sql.Exception)
+            Return
+        End If
+
+        ' Load the data in the SongForm and show it
+        home.childForm(songForm)
+        songForm.loadData(query)
     End Sub
 
     Private Sub Albums_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         loadAlbumData("
-        SELECT 
-            u.UserName AS ArtistName,
-            al.Title AS AlbumName
-        FROM 
-            Melodifydb.dbo.USERS u
-        INNER JOIN 
-            Melodifydb.dbo.ARTISTS ar ON u.UserId = ar.UserId
-        INNER JOIN 
-            Melodifydb.dbo.ALBUMS al ON ar.ArtistId = al.ArtistID
-        WHERE 
-            u.ArtistCheck = 1
-    ")
+            SELECT 
+                u.UserName AS ArtistName,
+                al.Title AS AlbumName,
+                al.AlbumId as AlbumId
+            FROM 
+                Melodifydb.dbo.USERS u
+            INNER JOIN 
+                Melodifydb.dbo.ARTISTS ar ON u.UserId = ar.UserId
+            INNER JOIN 
+                Melodifydb.dbo.ALBUMS al ON ar.ArtistId = al.ArtistID
+            WHERE 
+                u.ArtistCheck = 1
+        ")
     End Sub
+
     Private searchedText As String = ""
 
     Private Sub searchBtn_KeyPress(sender As Object, e As KeyPressEventArgs) Handles searchBtn.KeyPress
@@ -134,23 +171,22 @@ Public Class Albums
 
             ' SQL query with wildcard search using LIKE operator
             Dim query As String = "
-        SELECT 
-            u.UserName AS ArtistName,
-            al.Title AS AlbumName
-        FROM 
-            Melodifydb.dbo.USERS u
-        INNER JOIN 
-            Melodifydb.dbo.ARTISTS ar ON u.UserId = ar.UserId
-        INNER JOIN 
-            Melodifydb.dbo.ALBUMS al ON ar.ArtistId = al.ArtistID
-        WHERE 
-            u.ArtistCheck = 1
-            AND al.Title LIKE @searchedText
-        "
+                SELECT 
+                    u.UserName AS ArtistName,
+                    al.Title AS AlbumName
+                FROM 
+                    Melodifydb.dbo.USERS u
+                INNER JOIN 
+                    Melodifydb.dbo.ARTISTS ar ON u.UserId = ar.UserId
+                INNER JOIN 
+                    Melodifydb.dbo.ALBUMS al ON ar.ArtistId = al.ArtistID
+                WHERE 
+                    u.ArtistCheck = 1
+                    AND al.Title LIKE @searchedText
+            "
 
             ' Load the album data with the query
             loadAlbumData(query)
-
             e.Handled = True ' To prevent the ding sound when Enter is pressed
         End If
     End Sub

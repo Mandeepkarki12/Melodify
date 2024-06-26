@@ -1,7 +1,7 @@
 ﻿Imports System.IO
 
 Public Class SongForm
-    Private sql As New SQLControl
+    Public sql As New SQLControl
     Private home As Home ' Declare a variable to hold the passed Home instance
 
     ' Modify the constructor to accept a Home instance
@@ -9,23 +9,24 @@ Public Class SongForm
         InitializeComponent()
         home = homeInstance ' Assign the passed Home instance to the variable
     End Sub
-    Private Sub Song_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+    Public Sub Song_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         FlowLayoutPanel1.Dock = DockStyle.Bottom
         Dim query As String = "
-        SELECT 
-            s.SongID,
-            s.Title AS SongTitle,
-            a.ArtistId,
-            u.UserName,
-            s.SongData,
-            s.SongImage
-        FROM 
-            dbo.Songs s
-        INNER JOIN 
-            dbo.Artists a ON s.ArtistID = a.ArtistId
-        INNER JOIN 
-            dbo.Users u ON a.UserId = u.UserId
-    "
+            SELECT 
+                s.SongID,
+                s.Title AS SongTitle,
+                a.ArtistId,
+                u.UserName,
+                s.SongData,
+                s.SongImage
+            FROM 
+                dbo.Songs s
+            INNER JOIN 
+                dbo.Artists a ON s.ArtistID = a.ArtistId
+            INNER JOIN 
+                dbo.Users u ON a.UserId = u.UserId
+        "
         loadData(query)
     End Sub
 
@@ -36,7 +37,7 @@ Public Class SongForm
         Public songData As String
     End Class
 
-    Private Function SongsList(query As String) As List(Of song)
+    Public Function SongsList(query As String) As List(Of song)
         Dim songs As New List(Of song)()
         sql.ExecQuery(query)
         ' Check for SQL errors
@@ -66,7 +67,7 @@ Public Class SongForm
         Return songs
     End Function
 
-    Private Sub loadData(query As String)
+    Public Sub loadData(query As String)
         ' Get the list of songs from the database
         Dim songs As List(Of song) = SongsList(query)
 
@@ -82,7 +83,7 @@ Public Class SongForm
             songPanel.Margin = New Padding(20)
             songPanel.CornerRadius = 10 ' Set the corner radius
 
-            'Create And add a PictureBox for the song image
+            ' Create and add a PictureBox for the song image
             Dim pb As New PictureBox()
             If s.songImage IsNot Nothing Then
                 pb.Image = s.songImage
@@ -143,8 +144,10 @@ Public Class SongForm
         home.Label33.Text = SingerName
         home.Files = fileP
     End Sub
+
     Private searchedText As String = ""
-    Private Sub searchBtn_KeyPress(sender As Object, e As KeyPressEventArgs) Handles searchBtn.KeyPress
+
+    Public Sub searchBtn_KeyPress(sender As Object, e As KeyPressEventArgs) Handles searchBtn.KeyPress
         If e.KeyChar = ChrW(Keys.Enter) Then
             ' If Enter key is pressed, store the text
             searchedText = searchBtn.Text
@@ -153,23 +156,23 @@ Public Class SongForm
             sql.AddParam("@searchedText", "%" & searchedText & "%")
             ' SQL query with wildcard search using LIKE operator
             Dim query As String = "
-        SELECT 
-            s.SongID,
-            s.Title AS SongTitle,
-            a.ArtistId,
-            u.UserName,
-            s.SongData,
-            s.SongImage
-        FROM 
-            dbo.Songs s
-        INNER JOIN 
-            dbo.Artists a ON s.ArtistID = a.ArtistId
-        INNER JOIN 
-            dbo.Users u ON a.UserId = u.UserId
-        WHERE
-            s.Title LIKE @searchedText OR
-            u.UserName LIKE @searchedText
-        "
+                SELECT 
+                    s.SongID,
+                    s.Title AS SongTitle,
+                    a.ArtistId,
+                    u.UserName,
+                    s.SongData,
+                    s.SongImage
+                FROM 
+                    dbo.Songs s
+                INNER JOIN 
+                    dbo.Artists a ON s.ArtistID = a.ArtistId
+                INNER JOIN 
+                    dbo.Users u ON a.UserId = u.UserId
+                WHERE
+                    s.Title LIKE @searchedText OR
+                    u.UserName LIKE @searchedText
+            "
             loadData(query)
             e.Handled = True ' To prevent the ding sound when Enter is pressed
         End If
