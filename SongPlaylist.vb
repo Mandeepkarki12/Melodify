@@ -203,7 +203,6 @@ Public Class SongPlaylist
             End If
         End If
     End Sub
-
     Private Sub SongPlaylist_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         FlowLayoutPanel2.Visible = True  ' Ensure FlowLayoutPanel2 is initially visible
         FlowLayoutPanel2.Dock = DockStyle.Bottom ' Adjust docking as needed
@@ -218,12 +217,10 @@ Public Class SongPlaylist
         FlowLayoutPanel1.Visible = False
         FlowLayoutPanel1.Dock = DockStyle.Bottom
     End Sub
-
     Private Sub Guna2Button1_Click(sender As Object, e As EventArgs) Handles Guna2Button1.Click
         Dim playlist As New Playlist(Home)
         Home.childForm(playlist)
     End Sub
-
     Private Sub Guna2CircleButton1_Click(sender As Object, e As EventArgs) Handles Guna2CircleButton1.Click
         LoadSongs()
         FlowLayoutPanel1.Visible = True

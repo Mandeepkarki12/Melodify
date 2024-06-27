@@ -5,14 +5,11 @@ Imports System.Windows.Forms.VisualStyles.VisualStyleElement
 Imports Guna.UI2.WinForms
 Imports NAudio
 Imports NAudio.Wave
-
 Public Class Home
     Public Imagemusic As New Func
-
     Public Sub Guna2ControlBox1_Click(sender As Object, e As EventArgs) Handles Guna2ControlBox1.Click
         Application.Exit()
     End Sub
-
     Public myPlayer As IWavePlayer = New WaveOut()
     Public FileReader As AudioFileReader
     Public Files As String = "C:\Users\karki\Downloads\Farkanna Hola ( Official Lyrical Video ) #shotoniphone.mp3"
@@ -21,7 +18,6 @@ Public Class Home
     Public singer As String
     Public volumes As Single = 0.5F
     Public Sql As New SQLControl
-
     Public Sub ClearSong()
         Try
             If myPlayer.PlaybackState = PlaybackState.Playing Then
@@ -37,7 +33,6 @@ Public Class Home
             ' Handle exceptions if needed
         End Try
     End Sub
-
     Public Sub Home_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Guna2Panel11.Hide()
         Imagemusic.LoadImage(Guna2CirclePictureBox2, userId)
@@ -50,7 +45,6 @@ Public Class Home
         Guna2TrackBar2.Maximum = 100
         Guna2TrackBar2.Value = 50
     End Sub
-
     Public Sub Guna2ImageButton15_Click(sender As Object, e As EventArgs) Handles Guna2ImageButton15.Click
         If Guna2ImageButton15.Checked = True Then
             Guna2ImageButton15.Checked = False
@@ -70,7 +64,6 @@ Public Class Home
             Timer1.Start() ' Start the timer when playback starts
         End If
     End Sub
-
     Public Sub Guna2TrackBar1_Scroll(sender As Object, e As ScrollEventArgs) Handles Guna2TrackBar1.Scroll
         Try
             Dim positionInMilliseconds As Long = (FileReader.TotalTime.TotalMilliseconds / 100) * Guna2TrackBar1.Value
@@ -79,8 +72,7 @@ Public Class Home
 
         End Try
     End Sub
-
-    Public Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
+   Public Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
         If FileReader IsNot Nothing Then
             Dim positionPercentage As Double = (FileReader.CurrentTime.TotalMilliseconds / FileReader.TotalTime.TotalMilliseconds) * 100
             Guna2TrackBar1.Value = CInt(positionPercentage)
