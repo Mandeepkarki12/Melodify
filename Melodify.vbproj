@@ -82,6 +82,12 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddPlaylist.Designer.vb">
+      <DependentUpon>AddPlaylist.vb</DependentUpon>
+    </Compile>
+    <Compile Include="AddPlaylist.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Albums.Designer.vb">
       <DependentUpon>Albums.vb</DependentUpon>
     </Compile>
@@ -143,6 +149,12 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="Playlist.Designer.vb">
+      <DependentUpon>Playlist.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Playlist.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="RoundedPanel.vb">
       <SubType>Component</SubType>
     </Compile>
@@ -164,6 +176,12 @@
     <Compile Include="SongForm.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="SongPlaylist.Designer.vb">
+      <DependentUpon>SongPlaylist.vb</DependentUpon>
+    </Compile>
+    <Compile Include="SongPlaylist.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="SQLControl.vb" />
     <Compile Include="test.Designer.vb">
       <DependentUpon>test.vb</DependentUpon>
@@ -173,6 +191,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="AddPlaylist.resx">
+      <DependentUpon>AddPlaylist.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Albums.resx">
       <DependentUpon>Albums.vb</DependentUpon>
     </EmbeddedResource>
@@ -200,6 +221,9 @@
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="Playlist.resx">
+      <DependentUpon>Playlist.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Setting.resx">
       <DependentUpon>Setting.vb</DependentUpon>
     </EmbeddedResource>
@@ -208,6 +232,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="SongForm.resx">
       <DependentUpon>SongForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SongPlaylist.resx">
+      <DependentUpon>SongPlaylist.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="test.resx">
       <DependentUpon>test.vb</DependentUpon>
@@ -492,6 +519,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\playlist-add-svgrepo-com %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\plus-svgrepo-com %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\plus-svgrepo-com.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

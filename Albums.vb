@@ -142,6 +142,7 @@ Public Class Albums
     End Sub
 
     Private Sub Albums_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        FlowLayoutPanel1.Dock = DockStyle.Bottom
         loadAlbumData("
             SELECT 
                 u.UserName AS ArtistName,
@@ -162,18 +163,20 @@ Public Class Albums
 
     Private Sub searchBtn_KeyPress(sender As Object, e As KeyPressEventArgs) Handles searchBtn.KeyPress
         If e.KeyChar = ChrW(Keys.Enter) Then
-            ' If Enter key is pressed, store the text
-            Dim searchedText As String = searchBtn.Text
-            searchBtn.Clear()
+            Try
+                ' If Enter key is pressed, store the text
+                searchedText = searchBtn.Text
+                searchBtn.Clear()
 
-            ' Add parameter for the wildcard search
-            Sql.AddParam("@searchedText", "%" & searchedText & "%")
+                ' Add parameter for the wildcard search
+                Sql.AddParam("@searchedText", "%" & searchedText & "%")
 
-            ' SQL query with wildcard search using LIKE operator
-            Dim query As String = "
+                ' SQL query with wildcard search using LIKE operator
+                Dim query As String = "
                 SELECT 
                     u.UserName AS ArtistName,
-                    al.Title AS AlbumName
+                    al.Title AS AlbumName,
+                    al.AlbumId as AlbumId
                 FROM 
                     Melodifydb.dbo.USERS u
                 INNER JOIN 
@@ -185,10 +188,16 @@ Public Class Albums
                     AND al.Title LIKE @searchedText
             "
 
-            ' Load the album data with the query
-            loadAlbumData(query)
-            e.Handled = True ' To prevent the ding sound when Enter is pressed
+                ' Load the album data with the query
+                loadAlbumData(query)
+                e.Handled = True ' To prevent the ding sound when Enter is pressed
+            Catch ex As Exception
+                ' Display any runtime errors
+                MsgBox("An error occurred: " & ex.Message)
+            End Try
         End If
     End Sub
+
+
 
 End Class

@@ -227,5 +227,8 @@ Public Class Home
         Guna2Panel11.Hide()
     End Sub
 
-
+    Private Sub Guna2Button4_Click(sender As Object, e As EventArgs) Handles Guna2Button4.Click
+        Dim PlaylistForm As New Playlist(Me)
+        childForm(PlaylistForm)
+    End Sub
 End Class

@@ -73,6 +73,7 @@ Public Class Artist
             nameLbl.Location = New Point(100, 10) ' Set the location to the right of the PictureBox
             nameLbl.TextAlign = ContentAlignment.MiddleLeft
             nameLbl.Font = New Font("Microsoft YaHei UI", 10, FontStyle.Bold)
+            nameLbl.Width = 300
             artistPanel.Controls.Add(nameLbl)
 
             ' Create and add a Label for the artist bio

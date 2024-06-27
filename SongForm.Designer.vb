@@ -24,7 +24,6 @@ Partial Class SongForm
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Me.Guna2Elipse1 = New Guna.UI2.WinForms.Guna2Elipse(Me.components)
-        Me.Guna2Elipse2 = New Guna.UI2.WinForms.Guna2Elipse(Me.components)
         Me.FlowLayoutPanel1 = New System.Windows.Forms.FlowLayoutPanel()
         Me.searchBtn = New Guna.UI2.WinForms.Guna2TextBox()
         Me.SuspendLayout()
@@ -33,10 +32,6 @@ Partial Class SongForm
         '
         Me.Guna2Elipse1.BorderRadius = 0
         Me.Guna2Elipse1.TargetControl = Me
-        '
-        'Guna2Elipse2
-        '
-        Me.Guna2Elipse2.BorderRadius = 0
         '
         'FlowLayoutPanel1
         '
@@ -88,6 +83,5 @@ Partial Class SongForm
 
     Friend WithEvents Guna2Elipse1 As Guna.UI2.WinForms.Guna2Elipse
     Friend WithEvents FlowLayoutPanel1 As FlowLayoutPanel
-    Friend WithEvents Guna2Elipse2 As Guna.UI2.WinForms.Guna2Elipse
     Friend WithEvents searchBtn As Guna.UI2.WinForms.Guna2TextBox
 End Class

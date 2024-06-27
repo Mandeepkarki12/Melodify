@@ -28,6 +28,7 @@ Partial Class Setting
         Me.Guna2Button1 = New Guna.UI2.WinForms.Guna2Button()
         Me.Guna2Button2 = New Guna.UI2.WinForms.Guna2Button()
         Me.Guna2Panel1 = New Guna.UI2.WinForms.Guna2Panel()
+        Me.Guna2CirclePictureBox2 = New Guna.UI2.WinForms.Guna2CirclePictureBox()
         Me.Guna2Button7 = New Guna.UI2.WinForms.Guna2Button()
         Me.Guna2TextBox2 = New Guna.UI2.WinForms.Guna2TextBox()
         Me.Label5 = New System.Windows.Forms.Label()
@@ -40,7 +41,6 @@ Partial Class Setting
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Guna2CircleButton2 = New Guna.UI2.WinForms.Guna2CircleButton()
         Me.Guna2CircleButton1 = New Guna.UI2.WinForms.Guna2CircleButton()
-        Me.Guna2CirclePictureBox2 = New Guna.UI2.WinForms.Guna2CirclePictureBox()
         Me.Guna2CirclePictureBox1 = New Guna.UI2.WinForms.Guna2CirclePictureBox()
         Me.Guna2Panel1.SuspendLayout()
         CType(Me.Guna2CirclePictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -112,6 +112,21 @@ Partial Class Setting
         Me.Guna2Panel1.Name = "Guna2Panel1"
         Me.Guna2Panel1.Size = New System.Drawing.Size(1096, 323)
         Me.Guna2Panel1.TabIndex = 11
+        '
+        'Guna2CirclePictureBox2
+        '
+        Me.Guna2CirclePictureBox2.BackColor = System.Drawing.Color.Transparent
+        Me.Guna2CirclePictureBox2.FillColor = System.Drawing.Color.Transparent
+        Me.Guna2CirclePictureBox2.Image = Global.Melodify.My.Resources.Resources.image_plus_svgrepo_com
+        Me.Guna2CirclePictureBox2.ImageRotate = 0!
+        Me.Guna2CirclePictureBox2.Location = New System.Drawing.Point(94, 64)
+        Me.Guna2CirclePictureBox2.Name = "Guna2CirclePictureBox2"
+        Me.Guna2CirclePictureBox2.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle
+        Me.Guna2CirclePictureBox2.Size = New System.Drawing.Size(146, 102)
+        Me.Guna2CirclePictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.Guna2CirclePictureBox2.TabIndex = 18
+        Me.Guna2CirclePictureBox2.TabStop = False
+        Me.Guna2CirclePictureBox2.UseTransparentBackground = True
         '
         'Guna2Button7
         '
@@ -296,21 +311,6 @@ Partial Class Setting
         Me.Guna2CircleButton1.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle
         Me.Guna2CircleButton1.Size = New System.Drawing.Size(82, 56)
         Me.Guna2CircleButton1.TabIndex = 12
-        '
-        'Guna2CirclePictureBox2
-        '
-        Me.Guna2CirclePictureBox2.BackColor = System.Drawing.Color.Transparent
-        Me.Guna2CirclePictureBox2.FillColor = System.Drawing.Color.Transparent
-        Me.Guna2CirclePictureBox2.Image = Global.Melodify.My.Resources.Resources.image_plus_svgrepo_com
-        Me.Guna2CirclePictureBox2.ImageRotate = 0!
-        Me.Guna2CirclePictureBox2.Location = New System.Drawing.Point(94, 64)
-        Me.Guna2CirclePictureBox2.Name = "Guna2CirclePictureBox2"
-        Me.Guna2CirclePictureBox2.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle
-        Me.Guna2CirclePictureBox2.Size = New System.Drawing.Size(146, 102)
-        Me.Guna2CirclePictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.Guna2CirclePictureBox2.TabIndex = 18
-        Me.Guna2CirclePictureBox2.TabStop = False
-        Me.Guna2CirclePictureBox2.UseTransparentBackground = True
         '
         'Guna2CirclePictureBox1
         '
