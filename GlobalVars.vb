@@ -4,4 +4,5 @@
     Public albumId As Integer
     Public flag As Boolean = False
     Public playlistId As Integer
+    Public userName As String
 End Module
