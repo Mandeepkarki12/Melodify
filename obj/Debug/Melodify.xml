@@ -57,6 +57,11 @@ Melodify
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
+<member name="P:Melodify.My.Resources.Resources.back_svgrepo_com__1_">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
 <member name="P:Melodify.My.Resources.Resources.Back1">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.

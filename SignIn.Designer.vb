@@ -37,6 +37,7 @@ Partial Class SignIn
         Me.TxtPassword = New Guna.UI2.WinForms.Guna2TextBox()
         Me.TxtEmail = New Guna.UI2.WinForms.Guna2TextBox()
         Me.FemaleButton = New Guna.UI2.WinForms.Guna2CustomRadioButton()
+        Me.Guna2Button1 = New Guna.UI2.WinForms.Guna2Button()
         CType(Me.Guna2CirclePictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Guna2CirclePictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Guna2PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -111,7 +112,7 @@ Partial Class SignIn
         '
         Me.Guna2CirclePictureBox1.BackColor = System.Drawing.Color.Transparent
         Me.Guna2CirclePictureBox1.FillColor = System.Drawing.Color.FromArgb(CType(CType(196, Byte), Integer), CType(CType(230, Byte), Integer), CType(CType(213, Byte), Integer))
-        Me.Guna2CirclePictureBox1.Image = Global.Melodify.My.Resources.Resources.PhotoUpoloadIcon
+        Me.Guna2CirclePictureBox1.Image = Global.Melodify.My.Resources.Resources.image_plus_svgrepo_com
         Me.Guna2CirclePictureBox1.ImageRotate = 0!
         Me.Guna2CirclePictureBox1.Location = New System.Drawing.Point(705, 46)
         Me.Guna2CirclePictureBox1.Name = "Guna2CirclePictureBox1"
@@ -252,11 +253,27 @@ Partial Class SignIn
         Me.FemaleButton.UncheckedState.FillColor = System.Drawing.Color.Transparent
         Me.FemaleButton.UncheckedState.InnerColor = System.Drawing.Color.Transparent
         '
+        'Guna2Button1
+        '
+        Me.Guna2Button1.DisabledState.BorderColor = System.Drawing.Color.DarkGray
+        Me.Guna2Button1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray
+        Me.Guna2Button1.DisabledState.FillColor = System.Drawing.Color.FromArgb(CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer), CType(CType(169, Byte), Integer))
+        Me.Guna2Button1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer), CType(CType(141, Byte), Integer))
+        Me.Guna2Button1.FillColor = System.Drawing.Color.FromArgb(CType(CType(51, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(145, Byte), Integer))
+        Me.Guna2Button1.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.Guna2Button1.ForeColor = System.Drawing.Color.White
+        Me.Guna2Button1.Image = Global.Melodify.My.Resources.Resources.back_svgrepo_com__1_
+        Me.Guna2Button1.Location = New System.Drawing.Point(-1, 0)
+        Me.Guna2Button1.Name = "Guna2Button1"
+        Me.Guna2Button1.Size = New System.Drawing.Size(42, 29)
+        Me.Guna2Button1.TabIndex = 23
+        '
         'SignIn
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1017, 684)
+        Me.Controls.Add(Me.Guna2Button1)
         Me.Controls.Add(Me.FemaleButton)
         Me.Controls.Add(Me.Guna2CirclePictureBox2)
         Me.Controls.Add(Me.Guna2ControlBox1)
@@ -297,4 +314,5 @@ Partial Class SignIn
     Friend WithEvents Guna2ControlBox1 As Guna.UI2.WinForms.Guna2ControlBox
     Friend WithEvents Guna2CirclePictureBox2 As Guna.UI2.WinForms.Guna2CirclePictureBox
     Friend WithEvents FemaleButton As Guna.UI2.WinForms.Guna2CustomRadioButton
+    Friend WithEvents Guna2Button1 As Guna.UI2.WinForms.Guna2Button
 End Class

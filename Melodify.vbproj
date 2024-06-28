@@ -526,5 +526,8 @@
   <ItemGroup>
     <None Include="Resources\plus-svgrepo-com.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\back-svgrepo-com %281%29.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

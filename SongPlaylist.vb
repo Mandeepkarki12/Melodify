@@ -206,12 +206,24 @@ Public Class SongPlaylist
     Private Sub SongPlaylist_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         FlowLayoutPanel2.Visible = True  ' Ensure FlowLayoutPanel2 is initially visible
         FlowLayoutPanel2.Dock = DockStyle.Bottom ' Adjust docking as needed
-        Dim query As String = "SELECT s.SongData, s.Title AS SongTitle, s.SongImage, u.Username
-                           FROM Melodifydb.dbo.Songs s
-                           JOIN Melodifydb.dbo.PlaylistSongs ps ON s.SongID = ps.SongID
-                           JOIN Melodifydb.dbo.Playlists p ON ps.PlaylistID = p.PlaylistID
-                           JOIN Melodifydb.dbo.Users u ON p.UserID = u.UserID
-                           WHERE ps.PlaylistID = @PlaylistID;"
+        Dim query As String = "SELECT 
+    s.SongID,
+    s.Title AS SongTitle,
+    a.ArtistId,
+    u.UserName,
+    s.SongData,
+    s.SongImage
+FROM 
+    dbo.Songs s
+INNER JOIN 
+    dbo.Artists a ON s.ArtistID = a.ArtistId
+INNER JOIN 
+    dbo.Users u ON a.UserId = u.UserId
+INNER JOIN 
+    dbo.PlaylistSongs ps ON s.SongID = ps.SongID
+WHERE 
+    ps.PlaylistID = @PlaylistID;
+"
         Sql.AddParam("@PlaylistID", playlistId)
         loadData(query)
         FlowLayoutPanel1.Visible = False
