@@ -223,4 +223,9 @@ Public Class Home
         Dim PlaylistForm As New Playlist(Me)
         childForm(PlaylistForm)
     End Sub
+
+    Private Sub Guna2Button7_Click(sender As Object, e As EventArgs) Handles Guna2Button7.Click
+        Dim DownloadForm As New Download
+        childForm(DownloadForm)
+    End Sub
 End Class

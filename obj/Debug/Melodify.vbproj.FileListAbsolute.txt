@@ -28,3 +28,4 @@ C:\Users\karki\OneDrive\Desktop\Project\Melodify\obj\Debug\Melodify.Playlist.res
 C:\Users\karki\OneDrive\Desktop\Project\Melodify\obj\Debug\Melodify.SongPlaylist.resources
 C:\Users\karki\OneDrive\Desktop\Project\Melodify\obj\Debug\Melodify.ForgetPassword.resources
 C:\Users\karki\OneDrive\Desktop\Project\Melodify\obj\Debug\Melodify.ChangePassword.resources
+C:\Users\karki\OneDrive\Desktop\Project\Melodify\obj\Debug\Melodify.Download.resources

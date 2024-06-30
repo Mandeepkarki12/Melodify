@@ -4,7 +4,6 @@ Public Class SongPlaylist
     Private Sql As New SQLControl
     Private SelectedSongIDs As New List(Of Integer)
     Private Home As Home
-
     ' Constructor to accept a Home instance
     Public Sub New(homeInstance As Home)
         InitializeComponent()
@@ -16,7 +15,6 @@ Public Class SongPlaylist
         Public songImage As Image
         Public songData As String
     End Class
-
     Public Function SongsList(query As String) As List(Of song)
         Dim songs As New List(Of song)()
         Sql.ExecQuery(query)
@@ -25,7 +23,6 @@ Public Class SongPlaylist
             MsgBox(Sql.Exception)
             Return songs
         End If
-
         For Each row As DataRow In Sql.SQLDS.Tables(0).Rows
             Dim song As New song()
             song.songTitle = Convert.ToString(row("SongTitle"))
@@ -46,14 +43,11 @@ Public Class SongPlaylist
 
         Return songs
     End Function
-
     Public Sub loadData(query As String)
         ' Get the list of songs from the database
         Dim songs As List(Of song) = SongsList(query)
-        MsgBox(songs.Count)
         ' Clear any existing controls in the FlowLayoutPanel
         FlowLayoutPanel2.Controls.Clear()
-
         ' Loop through each song and create controls to display them
         For Each s As song In songs
             ' Create a new panel for each song
@@ -62,7 +56,6 @@ Public Class SongPlaylist
             songPanel.Height = 200
             songPanel.Margin = New Padding(20)
             songPanel.CornerRadius = 10 ' Set the corner radius
-
             ' Create and add a PictureBox for the song image
             Dim pb As New PictureBox()
             If s.songImage IsNot Nothing Then
@@ -103,7 +96,6 @@ Public Class SongPlaylist
             FlowLayoutPanel2.Controls.Add(songPanel)
         Next
     End Sub
-
     Private Sub SongPanel_Click(sender As Object, e As EventArgs)
         ' Retrieve the clicked control, which might be the panel or any of its child controls
         Dim clickedControl As Control = DirectCast(sender, Control)
@@ -114,7 +106,6 @@ Public Class SongPlaylist
         ' Update Label1 with the song name
         displayMusictemp(s.songImage, s.songTitle, s.artistName, s.songData)
     End Sub
-
     Public Sub displayMusictemp(picBox As Image, musicName As String, SingerName As String, fileP As String)
         Home.Guna2ImageButton15.Checked = False
         Home.ClearSong()
@@ -124,7 +115,6 @@ Public Class SongPlaylist
         Home.Label33.Text = SingerName
         Home.Files = fileP
     End Sub
-
     Private Sub LoadSongs()
         Sql.Params.Clear()
         Dim query As String = "
@@ -186,7 +176,6 @@ Public Class SongPlaylist
             FlowLayoutPanel1.Controls.Add(songPanel)
         Next
     End Sub
-
     Private Sub SongCheckBox_CheckedChanged(sender As Object, e As EventArgs)
         Dim checkBox As CheckBox = DirectCast(sender, CheckBox)
         Dim songID As Integer = DirectCast(checkBox.Tag, Integer)
@@ -229,30 +218,75 @@ WHERE
         FlowLayoutPanel1.Visible = False
         FlowLayoutPanel1.Dock = DockStyle.Bottom
     End Sub
+
     Private Sub Guna2Button1_Click(sender As Object, e As EventArgs) Handles Guna2Button1.Click
         Dim playlist As New Playlist(Home)
         Home.childForm(playlist)
     End Sub
+
     Private Sub Guna2CircleButton1_Click(sender As Object, e As EventArgs) Handles Guna2CircleButton1.Click
         LoadSongs()
         FlowLayoutPanel1.Visible = True
         FlowLayoutPanel2.Visible = False  ' Ensure FlowLayoutPanel2 is hidden when not needed
         Guna2Button2.Visible = True
     End Sub
+
     Private Sub SaveSelectedSongs()
         If SelectedSongIDs.Count > 0 Then
-            Dim query As String = "INSERT INTO [Melodifydb].[dbo].[PlaylistSongs] (PlaylistID, SongID) VALUES (@PlaylistID, @SongID)"
+            Dim checkQuery As String = "SELECT COUNT(*) FROM [Melodifydb].[dbo].[PlaylistSongs] WHERE PlaylistID = @PlaylistID AND SongID = @SongID"
+            Dim insertQuery As String = "INSERT INTO [Melodifydb].[dbo].[PlaylistSongs] (PlaylistID, SongID) VALUES (@PlaylistID, @SongID)"
             Try
                 For Each songID In SelectedSongIDs
+                    ' Clear previous parameters
+                    Sql.Params.Clear()
                     Sql.AddParam("@PlaylistID", playlistId)
                     Sql.AddParam("@SongID", songID)
-                    Sql.ExecQuery(query)
+                    ' Check if the song already exists in the playlist
+                    Sql.ExecQuery(checkQuery)
                     If Not String.IsNullOrEmpty(Sql.Exception) Then
                         MsgBox(Sql.Exception)
                         Return
                     End If
+                    ' If the song does not exist, insert it
+                    If Sql.SQLDS.Tables(0).Rows(0)(0) = 0 Then
+                        Sql.Params.Clear() ' Clear parameters before inserting
+                        Sql.AddParam("@PlaylistID", playlistId)
+                        Sql.AddParam("@SongID", songID)
+                        Sql.ExecQuery(insertQuery)
+                        If Not String.IsNullOrEmpty(Sql.Exception) Then
+                            MsgBox(Sql.Exception)
+                            Return
+                        End If
+                    End If
                 Next
+
                 MsgBox("Selected songs have been saved to the playlist successfully.")
+
+                ' Reload the song data in the playlist
+                Dim reloadQuery As String = "SELECT 
+                s.SongID,
+                s.Title AS SongTitle,
+                a.ArtistId,
+                u.UserName,
+                s.SongData,
+                s.SongImage
+            FROM 
+                dbo.Songs s
+            INNER JOIN 
+                dbo.Artists a ON s.ArtistID = a.ArtistId
+            INNER JOIN 
+                dbo.Users u ON a.UserId = u.UserId
+            INNER JOIN 
+                dbo.PlaylistSongs ps ON s.SongID = ps.SongID
+            WHERE 
+                ps.PlaylistID = @PlaylistID"
+                Sql.Params.Clear()
+                Sql.AddParam("@PlaylistID", playlistId)
+                loadData(reloadQuery)
+                ' Update UI to show the updated playlist
+                FlowLayoutPanel1.Visible = False
+                Guna2Button2.Visible = False
+                FlowLayoutPanel2.Visible = True ' Make FlowLayoutPanel2 visible after saving selected songs
             Catch ex As Exception
                 MsgBox("An error occurred while saving the songs to the playlist: " & ex.Message)
             End Try
@@ -262,8 +296,5 @@ WHERE
     End Sub
     Private Sub Guna2Button2_Click(sender As Object, e As EventArgs) Handles Guna2Button2.Click
         SaveSelectedSongs()
-        FlowLayoutPanel1.Visible = False
-        Guna2Button2.Visible = False
-        FlowLayoutPanel2.Visible = True  ' Make FlowLayoutPanel2 visible after saving selected songs
     End Sub
 End Class

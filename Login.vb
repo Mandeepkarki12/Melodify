@@ -15,7 +15,7 @@ Public Class Login
         sql.ExecQuery("SELECT UserId " & "FROM USERS WHERE UserName = @User AND Password = @Password COLLATE SQL_LATIN1_GENERAL_CP1_CS_AS")
         If sql.RecordCount = 1 Then
             userId = Convert.ToInt32(sql.SQLDS.Tables(0).Rows(0)("UserId"))
-            MsgBox(userId)
+
             Return True
         Else
             Return False
@@ -23,7 +23,6 @@ Public Class Login
     End Function
     Private Sub LoginButton_Click(sender As Object, e As EventArgs) Handles LoginButton.Click
         If authentication() Then
-            MsgBox("Login Successful")
             Try
                 ' Retrieve Artist ID
                 sql.SQLDS.Clear()
@@ -32,7 +31,7 @@ Public Class Login
 
                 If sql.RecordCount = 1 Then
                     artistId = Convert.ToInt32(sql.SQLDS.Tables(0).Rows(0)("ArtistId"))
-                    MsgBox("Artist ID: " & artistId)
+
                 Else
                     MsgBox("No artist ID found for this user.")
                 End If
@@ -56,9 +55,7 @@ Public Class Login
             TxtPassword.PasswordChar = "*"
         End If
     End Sub
-    Private Sub Login_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
-    End Sub
 
     Private Sub Label3_Click(sender As Object, e As EventArgs) Handles Label3.Click
         Dim forgetpass As New ForgetPassword

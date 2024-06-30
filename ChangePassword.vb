@@ -6,7 +6,7 @@ Public Class ChangePassword
         Guna2CirclePictureBox2.Image = loadImage()
     End Sub
     Private Function loadImage() As Image
-        Dim pic As Image
+        Dim pic As Image = Melodify.My.Resources.Account
         sql.AddParam("@user", userName)
         sql.ExecQuery("SELECT ProfilePicture FROM USERS WHERE UserName=@user")
         Dim buffer As Byte() = DirectCast((sql.SQLDS.Tables(0).Rows(0)("ProfilePicture")), Byte())
